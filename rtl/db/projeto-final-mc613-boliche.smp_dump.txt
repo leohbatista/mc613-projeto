@@ -1,0 +1,6 @@
+
+State Machine - |boliche|state
+Name state.resultado state.jogando state.inicio 
+state.inicio 0 0 0 
+state.jogando 0 1 1 
+state.resultado 1 0 1 
