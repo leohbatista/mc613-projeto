@@ -5,6 +5,7 @@ ENTITY tela IS
 	PORT (
 		GAME_STATE					: IN INTEGER RANGE 0 TO 2;
 		PINOS					: IN STD_LOGIC_VECTOR(0 to 9);
+		PLAYERS				: IN INTEGER RANGE 0 TO 6;
 		CLOCK_50				: IN STD_LOGIC;
 		KEY				: IN STD_LOGIC_VECTOR(0 downto 0);
 		VGA_R, VGA_G, VGA_B	: OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
@@ -136,11 +137,61 @@ BEGIN
 		ELSIF (rising_edge(clk50M)) THEN
 			normal_video_word <= "000";
 			IF (GAME_STATE = 0) THEN
+				-- LABEL "BOLICHE"
+				if (	((y>=21 and y<=40) and (x=45 or x=46 or x=53 or x=69 or x=70 or x=97 or x=98 or x=105 or x=106)) or 
+						((y>=23 and y<=38) and (x=54 or x=57 or x=58 or x=65 or x=66 or x=85 or x=86 or x=109 or x=110)) or
+						((y>=25 and y<=40) and (x=81 or x=82)) or
+						((y=21 or y=22) and ((x>=47 and x<=53) or (x>=59 and x<=64) or x=81 or x=82 or (x>=87 and x<=94) or (x>=111 and x<=118))) or
+						((y=30 or y=31) and ((x>=47 and x<=53) or (x>=99 and x<=104) or (x>=111 and x<=118))) or
+						((y=39 or y=40) and ((x>=47 and x<=53) or (x>=59 and x<=64) or (x>=71 and x<=78) or (x>=87 and x<=94) or (x>=111 and x<=118)))
+					) then
+					normal_video_word <= "111";
+				end if;	
 				
-				-- START SCREEN
-				if ((x>=61 and x<=66 and y>=45 and y<=50)) then
+				-- LABEL "JOGADOR:"
+				if (	((y=67) and ((x>=29 and x<=32) or x=35 or x=36 or (x>=40 and x<=42) or x=45 or x=46 or (x>=49 and x<=51) or x=55 or x=56 or (x>=59 and x<=61) or (x>=65 and x<=67) or (x>=70 and x<=72))) or 
+						((y=68) and (x=32 or x=34 or x=37 or x=39 or x=44 or x=47 or x=49 or x=52 or x=54 or x=57 or x=59 or x=62 or x=64 or x=69)) or 
+						((y=69) and (x=32 or x=34 or x=37 or x=39 or x=44 or x=47 or x=49 or x=52 or x=54 or x=57 or x=59 or x=62 or x=64 or x=69 or x=75)) or 
+						((y=70) and (x=32 or x=34 or x=37 or x=39 or x=41 or x=42 or x=44 or x=47 or x=49 or x=52 or x=54 or x=57 or (x>=59 and x<=61) or (x>=64 and x<=67) or x=70 or x=71)) or 
+						((y=71) and (x=29 or x=32 or x=34 or x=37 or x=39 or x=42 or (x>=44 and x<=47) or x=49 or x=52 or x=54 or x=57 or x=59 or x=60 or x=64 or x=72)) or 
+						((y=72) and (x=29 or x=32 or x=34 or x=37 or x=39 or x=42 or x=44 or x=47 or x=49 or x=52 or x=54 or x=57 or x=59 or x=61 or x=64 or x=72 or x=75)) or 
+						((y=73) and (x=30 or x=31 or x=35 or x=36 or x=40 or x=41 or x=44 or x=47 or (x>=49 and x<=51) or x=55 or x=56 or x=59 or x=62 or (x>=65 and x<=67) or (x>=69 and x<=71)) ) ) then 
 					normal_video_word <= "111";
 				end if;
+				
+				-- PLAYER NUMBER
+				IF (PLAYERS = 1) THEN
+					-- 1
+					if (((x=80 or x=81) and (y=66 or y=67 or y=73 or y=74)) or ((x=82 or x=83) and (y>=65 and y<=74)) or ((x=84 or x=85) and (y=73 or y=74))) then
+						normal_video_word <= "111";
+					end if;
+				ELSIF (PLAYERS = 2) THEN				
+					-- 2
+					if (((x>=80 and x<=85) and (y=65 or y=66 or y=69 or y=70 or y=73 or y=74)) or ((x=80 or x=81) and (y=71 or y=72)) or ((x=84 or x=85) and (y=67 or y=68))) then
+						normal_video_word <= "111";
+					end if;
+				ELSIF (PLAYERS = 3) THEN
+					-- 3
+					if (((x>=80 and x<=85) and (y=65 or y=66 or y=69 or y=70 or y=73 or y=74)) or ((x=84 or x=85) and (y=71 or y=72)) or ((x=84 or x=85) and (y=67 or y=68))) then
+						normal_video_word <= "111";
+					end if;
+				ELSIF (PLAYERS = 4) THEN
+					-- 4
+					if (((x=80 or x=81) and (y>=65 and y<=70)) or ((x=82 or x=83) and (y=69 or y=70)) or ((x=84 or x=85) and (y>=65 and y<=74))) then
+						normal_video_word <= "111";
+					end if;
+				ELSIF (PLAYERS = 5) THEN
+					-- 5
+					if (((x>=80 and x<=85) and (y=65 or y=66 or y=69 or y=70 or y=73 or y=74)) or ((x=80 or x=81) and (y=67 or y=68)) or ((x=84 or x=85) and (y=71 or y=72))) then
+						normal_video_word <= "111";
+					end if;
+				ELSIF (PLAYERS = 6) THEN
+					-- 6
+					if (((x>=80 and x<=85) and (y=65 or y=66 or y=69 or y=70 or y=73 or y=74)) or ((x=80 or x=81) and (y=67 or y=68)) or ((x=80 or x=81 or x=84 or x=85) and (y=71 or y=72))) then
+						normal_video_word <= "111";
+					end if;
+				END IF;
+				
 			ELSIF(GAME_STATE = 1) THEN
 			
 				-- GAME SCREEN

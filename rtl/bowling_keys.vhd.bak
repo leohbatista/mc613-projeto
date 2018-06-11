@@ -1,0 +1,23 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+entity bowlingKeyboard is
+port (
+	keys: in std_logic_vector(15 downto 0);
+	keyPressed: out std_logic_vector(2 downto 0)
+);
+end bowlingKeyboard;
+
+ARCHITECTURE LogicFunction OF bowlingKeyboard IS
+BEGIN
+	CASE aux_keys IS	
+		WHEN x"0069"	=>	keyPressed	<=	"001";	--	Num1
+		WHEN x"0072"	=>	keyPressed	<=	"010";	--	Num2
+		WHEN x"007A"	=>	keyPressed	<=	"011";	--	Num3
+		WHEN x"006B"	=>	keyPressed	<=	"100";	--	Num4
+		WHEN x"0073"	=>	keyPressed	<=	"101";	--	Num5
+		WHEN x"0074"	=>	keyPressed	<=	"110";	--	Num6
+		WHEN x"E05A"	=>	keyPressed	<=	"111";	--	NumEnter
+		WHEN OTHERS	   =>	keyPressed	<=	"000";		
+	END CASE;	
+END LogicFunction ;

@@ -1,11 +1,11 @@
-Analysis & Synthesis Status : Successful - Wed Jun  6 17:40:19 2018
+Analysis & Synthesis Status : Successful - Mon Jun 11 20:36:55 2018
 Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 Revision Name : projeto-final-mc613-boliche
 Top-level Entity Name : boliche
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 95
-Total pins : 42
+Total registers : 227
+Total pins : 43
 Total virtual pins : 0
 Total block memory bits : 57,600
 Total DSP Blocks : 0

@@ -8,19 +8,15 @@ entity kbd_alphanum is
     clk : in std_logic;
     key_on : in std_logic_vector(2 downto 0);
     key_code : in std_logic_vector(47 downto 0);
-    HEX1 : out std_logic_vector(6 downto 0); -- GFEDCBA
-    HEX0 : out std_logic_vector(6 downto 0) -- GFEDCBA
+    keyPressed : out std_logic_vector(2 downto 0);
   );
 end kbd_alphanum;
 
 architecture rtl of kbd_alphanum is
 	signal ascii_bin : std_logic_vector(7 downto 0);
 	signal key_bin : std_logic_vector(15 downto 0); -- value to be shown in display
-	signal aux_hex0,aux_hex1: std_logic_vector(6 downto 0);
 begin
 	k2a_0: keycode2ascii port map (keys => key_code, ascii => ascii_bin);
-	b2h_0: bin2hex port map (SW => ascii_bin(3 downto 0), HEX0 => aux_hex0);
-	b2h_1: bin2hex port map (SW => ascii_bin(7 downto 4), HEX0 => aux_hex1);
 	
 	process(ascii_bin)
 	begin
