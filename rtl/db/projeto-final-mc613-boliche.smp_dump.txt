@@ -1,9 +1,10 @@
 
 State Machine - |boliche|state
-Name state.resultado state.jogando state.inicio 
-state.inicio 0 0 0 
-state.jogando 0 1 1 
-state.resultado 1 0 1 
+Name state.resultado state.jogando state.inicio state.reset 
+state.reset 0 0 0 0 
+state.inicio 0 0 1 1 
+state.jogando 0 1 0 1 
+state.resultado 1 0 0 1 
 
 State Machine - |boliche|kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|cmdstate
 Name cmdstate.CLEAR cmdstate.WAITACK1 cmdstate.SENDVAL cmdstate.SETLIGHTS cmdstate.WAITACK cmdstate.SEND cmdstate.SETCMD 

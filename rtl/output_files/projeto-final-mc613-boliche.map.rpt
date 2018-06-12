@@ -1,5 +1,5 @@
 Analysis & Synthesis report for projeto-final-mc613-boliche
-Mon Jun 11 20:36:55 2018
+Mon Jun 11 22:59:32 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -62,14 +62,14 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Jun 11 20:36:55 2018       ;
+; Analysis & Synthesis Status     ; Successful - Mon Jun 11 22:59:32 2018       ;
 ; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; projeto-final-mc613-boliche                 ;
 ; Top-level Entity Name           ; boliche                                     ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 227                                         ;
-; Total pins                      ; 43                                          ;
+; Total registers                 ; 252                                         ;
+; Total pins                      ; 44                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 57,600                                      ;
 ; Total DSP Blocks                ; 0                                           ;
@@ -225,18 +225,18 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimate of Logic utilization (ALMs needed) ; 291         ;
+; Estimate of Logic utilization (ALMs needed) ; 337         ;
 ;                                             ;             ;
-; Combinational ALUT usage for logic          ; 466         ;
-;     -- 7 input functions                    ; 6           ;
-;     -- 6 input functions                    ; 100         ;
-;     -- 5 input functions                    ; 79          ;
-;     -- 4 input functions                    ; 64          ;
-;     -- <=3 input functions                  ; 217         ;
+; Combinational ALUT usage for logic          ; 530         ;
+;     -- 7 input functions                    ; 3           ;
+;     -- 6 input functions                    ; 132         ;
+;     -- 5 input functions                    ; 87          ;
+;     -- 4 input functions                    ; 72          ;
+;     -- <=3 input functions                  ; 236         ;
 ;                                             ;             ;
-; Dedicated logic registers                   ; 227         ;
+; Dedicated logic registers                   ; 252         ;
 ;                                             ;             ;
-; I/O pins                                    ; 43          ;
+; I/O pins                                    ; 44          ;
 ; Total MLAB memory bits                      ; 0           ;
 ; Total block memory bits                     ; 57600       ;
 ;                                             ;             ;
@@ -246,9 +246,9 @@ refer to the applicable agreement for further details.
 ;     -- PLLs                                 ; 1           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; CLOCK~input ;
-; Maximum fan-out                             ; 172         ;
-; Total fan-out                               ; 2931        ;
-; Average fan-out                             ; 3.71        ;
+; Maximum fan-out                             ; 197         ;
+; Total fan-out                               ; 3300        ;
+; Average fan-out                             ; 3.74        ;
 +---------------------------------------------+-------------+
 
 
@@ -257,13 +257,13 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------+------------------+--------------+
 ; Compilation Hierarchy Node                      ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                           ; Entity Name      ; Library Name ;
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------+------------------+--------------+
-; |boliche                                        ; 466 (8)             ; 227 (5)                   ; 57600             ; 0          ; 43   ; 0            ; |boliche                                                                                                                                      ; boliche          ; work         ;
-;    |kbd_bowling_ctrl:k|                         ; 201 (0)             ; 132 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |boliche|kbd_bowling_ctrl:k                                                                                                                   ; kbd_bowling_ctrl ; work         ;
-;       |kbd_bowling:kbd_bowling_inst|            ; 15 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|kbd_bowling_ctrl:k|kbd_bowling:kbd_bowling_inst                                                                                      ; kbd_bowling      ; work         ;
-;          |bowling_keys:kb|                      ; 15 (15)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|kbd_bowling_ctrl:k|kbd_bowling:kbd_bowling_inst|bowling_keys:kb                                                                      ; bowling_keys     ; work         ;
+; |boliche                                        ; 530 (46)            ; 252 (29)                  ; 57600             ; 0          ; 44   ; 0            ; |boliche                                                                                                                                      ; boliche          ; work         ;
+;    |kbd_bowling_ctrl:k|                         ; 198 (0)             ; 132 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |boliche|kbd_bowling_ctrl:k                                                                                                                   ; kbd_bowling_ctrl ; work         ;
+;       |kbd_bowling:kbd_bowling_inst|            ; 12 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|kbd_bowling_ctrl:k|kbd_bowling:kbd_bowling_inst                                                                                      ; kbd_bowling      ; work         ;
+;          |bowling_keys:kb|                      ; 12 (12)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|kbd_bowling_ctrl:k|kbd_bowling:kbd_bowling_inst|bowling_keys:kb                                                                      ; bowling_keys     ; work         ;
 ;       |kbdex_ctrl:kbdex_ctrl_inst|              ; 186 (68)            ; 132 (54)                  ; 0                 ; 0          ; 0    ; 0            ; |boliche|kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst                                                                                        ; kbdex_ctrl       ; work         ;
 ;          |ps2_iobase:ps2_ctrl|                  ; 118 (118)           ; 78 (78)                   ; 0                 ; 0          ; 0    ; 0            ; |boliche|kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl                                                                    ; ps2_iobase       ; work         ;
-;    |tela:t|                                     ; 257 (203)           ; 90 (48)                   ; 57600             ; 0          ; 0    ; 0            ; |boliche|tela:t                                                                                                                               ; tela             ; work         ;
+;    |tela:t|                                     ; 286 (232)           ; 91 (49)                   ; 57600             ; 0          ; 0    ; 0            ; |boliche|tela:t                                                                                                                               ; tela             ; work         ;
 ;       |vgacon:vga_component|                    ; 54 (48)             ; 42 (40)                   ; 57600             ; 0          ; 0    ; 0            ; |boliche|tela:t|vgacon:vga_component                                                                                                          ; vgacon           ; work         ;
 ;          |dual_clock_ram:vgamem|                ; 6 (0)               ; 2 (0)                     ; 57600             ; 0          ; 0    ; 0            ; |boliche|tela:t|vgacon:vga_component|dual_clock_ram:vgamem                                                                                    ; dual_clock_ram   ; work         ;
 ;             |altsyncram:ram_block_rtl_0|        ; 6 (0)               ; 2 (0)                     ; 57600             ; 0          ; 0    ; 0            ; |boliche|tela:t|vgacon:vga_component|dual_clock_ram:vgamem|altsyncram:ram_block_rtl_0                                                         ; altsyncram       ; work         ;
@@ -287,15 +287,16 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 
 Encoding Type:  One-Hot
-+------------------------------------------------------------------+
-; State Machine - |boliche|state                                   ;
-+-----------------+-----------------+---------------+--------------+
-; Name            ; state.resultado ; state.jogando ; state.inicio ;
-+-----------------+-----------------+---------------+--------------+
-; state.inicio    ; 0               ; 0             ; 0            ;
-; state.jogando   ; 0               ; 1             ; 1            ;
-; state.resultado ; 1               ; 0             ; 1            ;
-+-----------------+-----------------+---------------+--------------+
++--------------------------------------------------------------------------------+
+; State Machine - |boliche|state                                                 ;
++-----------------+-----------------+---------------+--------------+-------------+
+; Name            ; state.resultado ; state.jogando ; state.inicio ; state.reset ;
++-----------------+-----------------+---------------+--------------+-------------+
+; state.reset     ; 0               ; 0             ; 0            ; 0           ;
+; state.inicio    ; 0               ; 0             ; 1            ; 1           ;
+; state.jogando   ; 0               ; 1             ; 0            ; 1           ;
+; state.resultado ; 1               ; 0             ; 0            ; 1           ;
++-----------------+-----------------+---------------+--------------+-------------+
 
 
 Encoding Type:  One-Hot
@@ -361,19 +362,16 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|key2code[14,15]                  ; Merged with kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|key2code[13]                 ;
 ; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|key1code[14,15]                  ; Merged with kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|key1code[13]                 ;
 ; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|key0code[14,15]                  ; Merged with kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|key0code[13]                 ;
-; tela:t|normal_video_word[1]                                                    ; Merged with tela:t|normal_video_word[0]                                                ;
 ; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|hdata[5..7]  ; Merged with kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|hdata[3] ;
 ; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|hdata[2]     ; Merged with kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|hdata[0] ;
 ; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|hdata[5..7]                      ; Merged with kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|hdata[3]                     ;
 ; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|hdata[2]                         ; Merged with kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|hdata[0]                     ;
 ; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|siguplights                      ; Stuck at GND due to stuck port data_in                                                 ;
 ; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|hdata[0]                         ; Merged with kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|hdata[3]                     ;
-; key_pressed                                                                    ; Stuck at GND due to stuck port data_in                                                 ;
 ; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|hdata[1]                         ; Stuck at GND due to stuck port data_in                                                 ;
 ; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|hdata[1]     ; Stuck at GND due to stuck port data_in                                                 ;
-; state.resultado                                                                ; Lost fanout                                                                            ;
 ; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|hdata[3]     ; Merged with kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|hdata[0] ;
-; Total Number of Removed Registers = 46                                         ;                                                                                        ;
+; Total Number of Removed Registers = 43                                         ;                                                                                        ;
 +--------------------------------------------------------------------------------+----------------------------------------------------------------------------------------+
 
 
@@ -394,12 +392,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 227   ;
+; Total registers                              ; 252   ;
 ; Number of registers using Synchronous Clear  ; 30    ;
 ; Number of registers using Synchronous Load   ; 21    ;
-; Number of registers using Asynchronous Clear ; 168   ;
+; Number of registers using Asynchronous Clear ; 169   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 118   ;
+; Number of registers using Clock Enable       ; 139   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -409,7 +407,8 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------------------------------------------+---------+
 ; Inverted Register                                                                ; Fan out ;
 +----------------------------------------------------------------------------------+---------+
-; tela:t|state                                                                     ; 34      ;
+; tela:t|state                                                                     ; 35      ;
+; rodada[0]                                                                        ; 9       ;
 ; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|sigclkreleased ; 3       ;
 ; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|fcount[8]      ; 3       ;
 ; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|fcount[6]      ; 3       ;
@@ -422,7 +421,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|rcount[2]      ; 2       ;
 ; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|rcount[0]      ; 2       ;
 ; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|sigsending                         ; 9       ;
-; Total number of inverted registers = 13                                          ;         ;
+; Total number of inverted registers = 14                                          ;         ;
 +----------------------------------------------------------------------------------+---------+
 
 
@@ -440,12 +439,16 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                           ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------+
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |boliche|kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|fcount[1] ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |boliche|kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|rcount[7] ;
-; 10:1               ; 3 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |boliche|players_qtty[1]                                                             ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |boliche|kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|fcount[0] ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |boliche|kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|rcount[6] ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |boliche|kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|nstate.CODE                   ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |boliche|kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|fcount[7] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |boliche|kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|rcount[1] ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |boliche|tela:t|normal_video_word[0]                                                 ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |boliche|kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|fcount[8] ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |boliche|kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|rcount[8] ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |boliche|jogador_vez                                                                 ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |boliche|rodada                                                                      ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 12 LEs               ; 3 LEs                  ; No         ; |boliche|Mux1                                                                        ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |boliche|kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|nstate.EXT1                   ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; No         ; |boliche|state                                                                       ;
 ; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |boliche|kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|Selector13                    ;
 ; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; No         ; |boliche|kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|Selector12                    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------+
@@ -854,42 +857,42 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 227                         ;
-;     CLR               ; 63                          ;
+; arriav_ff             ; 252                         ;
+;     CLR               ; 64                          ;
 ;     CLR SCLR          ; 10                          ;
 ;     CLR SLD           ; 21                          ;
-;     ENA               ; 35                          ;
+;     ENA               ; 56                          ;
 ;     ENA CLR           ; 64                          ;
 ;     ENA CLR SCLR      ; 10                          ;
 ;     ENA SCLR          ; 9                           ;
 ;     SCLR              ; 1                           ;
-;     plain             ; 14                          ;
+;     plain             ; 17                          ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 467                         ;
+; arriav_lcell_comb     ; 531                         ;
 ;     arith             ; 98                          ;
 ;         1 data inputs ; 95                          ;
 ;         2 data inputs ; 3                           ;
-;     extend            ; 6                           ;
-;         7 data inputs ; 6                           ;
-;     normal            ; 343                         ;
+;     extend            ; 3                           ;
+;         7 data inputs ; 3                           ;
+;     normal            ; 410                         ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 4                           ;
-;         2 data inputs ; 52                          ;
-;         3 data inputs ; 42                          ;
-;         4 data inputs ; 64                          ;
-;         5 data inputs ; 79                          ;
-;         6 data inputs ; 100                         ;
+;         2 data inputs ; 56                          ;
+;         3 data inputs ; 57                          ;
+;         4 data inputs ; 72                          ;
+;         5 data inputs ; 87                          ;
+;         6 data inputs ; 132                         ;
 ;     shared            ; 20                          ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 4                           ;
 ;         2 data inputs ; 13                          ;
 ;         3 data inputs ; 2                           ;
-; boundary_port         ; 43                          ;
+; boundary_port         ; 44                          ;
 ; generic_pll           ; 1                           ;
 ; stratixv_ram_block    ; 9                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 2.65                        ;
+; Max LUT depth         ; 7.00                        ;
+; Average LUT depth     ; 2.96                        ;
 +-----------------------+-----------------------------+
 
 
@@ -908,7 +911,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Mon Jun 11 20:36:41 2018
+    Info: Processing started: Mon Jun 11 22:59:19 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off projeto-final-mc613-boliche -c projeto-final-mc613-boliche
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -932,7 +935,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file projeto
     Info (12022): Found design unit 1: boliche-rtl File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/projeto-final-mc613-boliche.vhd Line: 22
     Info (12023): Found entity 1: boliche File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/projeto-final-mc613-boliche.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file tela.vhd
-    Info (12022): Found design unit 1: tela-behavior File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/tela.vhd Line: 18
+    Info (12022): Found design unit 1: tela-behavior File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/tela.vhd Line: 22
     Info (12023): Found entity 1: tela File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/tela.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file kbd_bowling.vhd
     Info (12022): Found design unit 1: kbd_bowling-rtl File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbd_bowling.vhd Line: 14
@@ -944,10 +947,10 @@ Info (12021): Found 2 design units, including 1 entities, in source file kbd_bow
     Info (12022): Found design unit 1: kbd_bowling_ctrl-rtl File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbd_bowling_ctrl.vhd Line: 13
     Info (12023): Found entity 1: kbd_bowling_ctrl File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbd_bowling_ctrl.vhd Line: 4
 Info (12127): Elaborating entity "boliche" for the top level hierarchy
-Info (12128): Elaborating entity "tela" for hierarchy "tela:t" File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/projeto-final-mc613-boliche.vhd Line: 38
-Warning (10036): Verilog HDL or VHDL warning at tela.vhd(40): object "slow_clock" assigned a value but never read File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/tela.vhd Line: 40
-Warning (10036): Verilog HDL or VHDL warning at tela.vhd(56): object "switch" assigned a value but never read File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/tela.vhd Line: 56
-Info (12128): Elaborating entity "vgacon" for hierarchy "tela:t|vgacon:vga_component" File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/tela.vhd Line: 61
+Info (12128): Elaborating entity "tela" for hierarchy "tela:t" File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/projeto-final-mc613-boliche.vhd Line: 47
+Warning (10036): Verilog HDL or VHDL warning at tela.vhd(44): object "slow_clock" assigned a value but never read File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/tela.vhd Line: 44
+Warning (10036): Verilog HDL or VHDL warning at tela.vhd(60): object "switch" assigned a value but never read File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/tela.vhd Line: 60
+Info (12128): Elaborating entity "vgacon" for hierarchy "tela:t|vgacon:vga_component" File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/tela.vhd Line: 66
 Info (12128): Elaborating entity "vga_pll" for hierarchy "tela:t|vgacon:vga_component|vga_pll:divider" File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/vgacon.vhd Line: 118
 Info (12128): Elaborating entity "vga_pll_0002" for hierarchy "tela:t|vgacon:vga_component|vga_pll:divider|vga_pll_0002:vga_pll_inst" File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/vga_pll.vhd Line: 31
 Info (12128): Elaborating entity "altera_pll" for hierarchy "tela:t|vgacon:vga_component|vga_pll:divider|vga_pll_0002:vga_pll_inst|altera_pll:altera_pll_i" File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/vga_pll/vga_pll_0002.v Line: 85
@@ -1015,7 +1018,7 @@ Info (12133): Instantiated megafunction "tela:t|vgacon:vga_component|vga_pll:div
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
 Info (12128): Elaborating entity "dual_clock_ram" for hierarchy "tela:t|vgacon:vga_component|dual_clock_ram:vgamem" File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/vgacon.vhd Line: 124
-Info (12128): Elaborating entity "kbd_bowling_ctrl" for hierarchy "kbd_bowling_ctrl:k" File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/projeto-final-mc613-boliche.vhd Line: 49
+Info (12128): Elaborating entity "kbd_bowling_ctrl" for hierarchy "kbd_bowling_ctrl:k" File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/projeto-final-mc613-boliche.vhd Line: 63
 Info (12128): Elaborating entity "kbdex_ctrl" for hierarchy "kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst" File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbd_bowling_ctrl.vhd Line: 43
 Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(125): signal "en" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 125
 Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(148): signal "fetchdata" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 148
@@ -1106,8 +1109,7 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/projeto-final-mc613-boliche.vhd Line: 14
 Info (286030): Timing-Driven Synthesis is running
 Critical Warning (18061): Ignored Power-Up Level option on the following registers
-    Critical Warning (18010): Register tela:t|state will power up to High File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/tela.vhd Line: 54
-Info (17049): 1 registers lost all their fanouts during netlist optimizations.
+    Critical Warning (18010): Register tela:t|state will power up to High File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/tela.vhd Line: 58
 Warning (20013): Ignored 571 assignments for entity "DE1_SoC" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[0] -entity DE1_SoC was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[10] -entity DE1_SoC was ignored
@@ -1682,17 +1684,17 @@ Warning (20013): Ignored 571 assignments for entity "DE1_SoC" -- entity does not
     Warning (20014): Assignment for entity set_instance_assignment -name D5_DELAY 2 -to HPS_DDR3_CK_P -entity DE1_SoC was ignored
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 7 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 589 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 12 input pins
+Info (21057): Implemented 655 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 13 input pins
     Info (21059): Implemented 29 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 536 logic cells
+    Info (21061): Implemented 601 logic cells
     Info (21064): Implemented 9 RAM segments
     Info (21065): Implemented 1 PLLs
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 616 warnings
-    Info: Peak virtual memory: 1238 megabytes
-    Info: Processing ended: Mon Jun 11 20:36:55 2018
-    Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:25
+    Info: Peak virtual memory: 1229 megabytes
+    Info: Processing ended: Mon Jun 11 22:59:32 2018
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:26
 
 

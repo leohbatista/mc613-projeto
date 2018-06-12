@@ -3,9 +3,13 @@ USE ieee.std_logic_1164.ALL;
 
 ENTITY tela IS
 	PORT (
-		GAME_STATE					: IN INTEGER RANGE 0 TO 2;
+		GAME_STATE			: IN INTEGER RANGE 0 TO 2;
 		PINOS					: IN STD_LOGIC_VECTOR(0 to 9);
 		PLAYERS				: IN INTEGER RANGE 0 TO 6;
+		PLAYER				: IN INTEGER RANGE 0 TO 5;
+		JOGADA				: IN STD_LOGIC;
+		RODADA				: IN INTEGER RANGE 1 TO 10;
+		SPARE, STRIKE		: IN STD_LOGIC;
 		CLOCK_50				: IN STD_LOGIC;
 		KEY				: IN STD_LOGIC_VECTOR(0 downto 0);
 		VGA_R, VGA_G, VGA_B	: OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
@@ -54,6 +58,7 @@ ARCHITECTURE behavior OF tela IS
 	SIGNAL state : VGA_STATES;
 	
 	signal switch, rstn, clk50M, sync, blank : std_logic;
+	
 BEGIN
 	switch <= '1';
 	rstn <= KEY(0);
@@ -247,8 +252,20 @@ BEGIN
 				end if;
 		
 				if(x = 39) then normal_video_word <= "111"; end if;
+
+				--testes debug
+				if ( y=45 and ((x=50 and JOGADA='0') or (x=51 and JOGADA='1')) ) then normal_video_word <= "110"; end if;
+				
+				if ( y=48 and x=(50+PLAYER) ) then normal_video_word <= "011"; end if;
+				 
+				if( y=51 and x=(49+RODADA) ) then normal_video_word <= "101"; end if;
+				
+				if (STRIKE = '1' and y=45 and x=55) then normal_video_word <= "010";
+				elsif (SPARE = '1' and y=45 and x=57) then normal_video_word <= "001";
+				end if;
+				
 			ELSE
-				normal_video_word <= "100";
+				normal_video_word <= "110";
 			END IF;
 			
 			normal_video_address <= x + y * HORZ_SIZE;
