@@ -11,7 +11,6 @@ source_file = 1, /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/vgacon.vhd
 source_file = 1, /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbd_bowling.vhd
 source_file = 1, /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/bowling_keys.vhd
 source_file = 1, /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbd_bowling_ctrl.vhd
-source_file = 1, /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/db/projeto-final-mc613-boliche.cmp.rdb
 source_file = 1, /opt/altera/17.1/quartus/libraries/vhdl/ieee/prmtvs_b.vhd
 source_file = 1, /opt/altera/17.1/quartus/libraries/vhdl/ieee/prmtvs_p.vhd
 source_file = 1, /opt/altera/17.1/quartus/libraries/vhdl/ieee/timing_b.vhd

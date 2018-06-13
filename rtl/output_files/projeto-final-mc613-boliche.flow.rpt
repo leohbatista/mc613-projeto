@@ -1,5 +1,5 @@
 Flow report for projeto-final-mc613-boliche
-Wed Jun 13 13:29:23 2018
+Wed Jun 13 14:02:07 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -40,7 +40,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Wed Jun 13 13:29:23 2018       ;
+; Flow Status                     ; Successful - Wed Jun 13 14:02:07 2018       ;
 ; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; projeto-final-mc613-boliche                 ;
 ; Top-level Entity Name           ; boliche                                     ;
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+-----------------------------+
 ; Option            ; Setting                     ;
 +-------------------+-----------------------------+
-; Start date & time ; 06/13/2018 13:27:32         ;
+; Start date & time ; 06/13/2018 14:00:14         ;
 ; Main task         ; Compilation                 ;
 ; Revision Name     ; projeto-final-mc613-boliche ;
 +-------------------+-----------------------------+
@@ -78,7 +78,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+-----------------------------+-------------+----------------+
 ; Assignment Name                     ; Value                                  ; Default Value               ; Entity Name ; Section Id     ;
 +-------------------------------------+----------------------------------------+-----------------------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 273440552275620.152890725224196        ; --                          ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 273440552275620.152890921332363        ; --                          ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                            ; --                          ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)              ; <None>                      ; --          ; --             ;
 ; EDA_TIME_SCALE                      ; 1 ps                                   ; --                          ; --          ; eda_simulation ;
@@ -101,12 +101,12 @@ refer to the applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:19     ; 1.0                     ; 1225 MB             ; 00:00:30                           ;
-; Fitter                    ; 00:01:09     ; 1.2                     ; 2679 MB             ; 00:02:12                           ;
-; Assembler                 ; 00:00:06     ; 1.0                     ; 1119 MB             ; 00:00:06                           ;
-; TimeQuest Timing Analyzer ; 00:00:09     ; 1.9                     ; 1429 MB             ; 00:00:16                           ;
-; EDA Netlist Writer        ; 00:00:03     ; 1.0                     ; 1420 MB             ; 00:00:02                           ;
-; Total                     ; 00:01:46     ; --                      ; --                  ; 00:03:06                           ;
+; Analysis & Synthesis      ; 00:00:19     ; 1.0                     ; 1221 MB             ; 00:00:30                           ;
+; Fitter                    ; 00:01:12     ; 1.2                     ; 2679 MB             ; 00:02:17                           ;
+; Assembler                 ; 00:00:07     ; 1.0                     ; 1119 MB             ; 00:00:06                           ;
+; TimeQuest Timing Analyzer ; 00:00:10     ; 1.9                     ; 1431 MB             ; 00:00:16                           ;
+; EDA Netlist Writer        ; 00:00:02     ; 1.0                     ; 1421 MB             ; 00:00:02                           ;
+; Total                     ; 00:01:50     ; --                      ; --                  ; 00:03:11                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

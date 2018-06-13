@@ -111,6 +111,7 @@ begin
 	process (CLOCK)
 		variable pontos_pinos : natural := 0;
 		variable last_pinos: integer := 0;
+		variable aux : integer range 0 to 300;
 	begin	
 		if (rising_edge(CLOCK)) then
 			-- Tratamento de se o botao continua apertado
