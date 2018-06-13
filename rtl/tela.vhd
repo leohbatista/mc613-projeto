@@ -97,7 +97,7 @@ BEGIN
 	video_address <= normal_video_address WHEN state = NORMAL ELSE clear_video_address;
 
 	clock_divider:
-	PROCESS (clk50M, rstn)
+	PROCESS (clk50M, rstn,PONTUACAO_1,PONTUACAO_2,PONTUACAO_3,PONTUACAO_4,PONTUACAO_5,PONTUACAO_6)
 		VARIABLE i : INTEGER := 0;
 	BEGIN
 		IF (rstn = '0') THEN
@@ -141,6 +141,7 @@ BEGIN
 				
 	vga_writer:
 	PROCESS (clk50M, rstn, normal_video_address)
+		variable centena, dezena, unidade, exibir : integer;
 	BEGIN
 		IF (rstn = '0') THEN
 			normal_video_address <= 0;
@@ -245,6 +246,657 @@ BEGIN
 				end if;
 				
 				-- Label "Pontos"
+				if( ((y=5) AND (x=52 or x=53 or x=54 or x=56 or x=57 or x=58 or x=60 or x=63 or x=65 or x=66 or x=67 or x=69 or x=70 or x=71 or x=73 or x=74 or x=75)) or
+					 ((y=6) AND (x=52 or x=54 or x=56 or x=58 or x=60 or x=61 or x=63 or x=66 or x=69 or x=71 or x=73 or x=77)) or
+					 ((y=7) AND (x=52 or x=53 or x=54 or x=56 or x=58 or x=60 or x=62 or x=63 or x=66 or x=69 or x=71 or x=73 or x=74 or x=75)) or
+					 ((y=8) AND (x=52 or x=56 or x=58 or x=60 or x=63 or x=66 or x=69 or x=71 or x=75 or x=77)) or
+					 ((y=9) AND (x=52 or x=56 or x=57 or x=58 or x=60 or x=63 or x=66 or x=69 or x=70 or x=71 or x=73 or x=74 or x=75)) ) then
+					normal_video_word <= "111";
+				end if;
+				
+				-- Cria label de jogadores
+				for i in 0 to 5 loop
+					if((i < PLAYERS - 1) or (i = PLAYERS - 1)) then
+						if (((y=(25 + 10*i)) and ((x>=52 and x<=55) or x=58 or x=59 or (x>=63 and x<=65) or x=68 or x=69 or (x>=72 and x<=74) or x=78 or x=79 or (x>=82 and x<=84))) or 
+							((y=(26 + 10*i)) and (x=55 or x=57 or x=60 or x=62 or x=67 or x=70 or x=72 or x=75 or x=77 or x=80 or x=82 or x=85)) or 
+							((y=(27 + 10*i)) and (x=55 or x=57 or x=60 or x=62 or x=64 or x=65 or x=67 or x=70 or x=72 or x=75 or x=77 or x=80 or (x>=82 and x<=84))) or 
+							((y=(28 + 10*i)) and (x=52 or x=55 or x=57 or x=60 or x=62 or x=65 or (x>=67 and x<=70) or x=72 or x=75 or x=77 or x=80 or x=82 or x=84)) or 
+							((y=(29 + 10*i)) and (x=53 or x=54 or x=58 or x=59 or x=63 or x=64 or x=67 or x=70 or (x>=72 and x<=74) or x=78 or x=79 or x=82 or x=85) ) ) then 
+							normal_video_word <= "111";
+						end if;
+						-- PLAYER NUMBER
+						IF (i = 0) THEN
+							-- 1
+							if (((y=(25 + 10*i)) and (x=89)) or 
+								((y=(26 + 10*i)) and (x=88 or x=89 or x=92)) or 
+								((y=(27 + 10*i)) and (x=89)) or 
+								((y=(28 + 10*i)) and (x=89 or x=92)) or 
+								((y=(29 + 10*i)) and (x=88 or x=89 or x=90))) then
+								normal_video_word <= "111";
+							end if;
+							
+								-- Printa pontuacao
+							centena := PONTUACAO_1/100;
+							dezena := (PONTUACAO_1 - (centena * 100))/10;
+							unidade := (PONTUACAO_1 - (centena * 100) - (dezena * 10));
+							
+							for j in 0 to 2 loop
+								if(j = 0) then
+									exibir := centena;
+								elsif(j = 1) then
+									exibir := dezena;
+								else
+									exibir := unidade;
+								end if;
+								if(exibir = 0) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 1) then
+									if (((y=(25 + 10*i)) and (x=(95+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(95+4*j))) or 
+									((y=(27 + 10*i)) and (x=(95+4*j))) or 
+									((y=(28 + 10*i)) and (x=(95+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 2) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 3) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 4) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 5) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 6) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 7) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 8) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 9) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								end if;
+							end loop;
+						ELSIF (i = 1) THEN				
+							-- 2
+							if (((y=(25 + 10*i)) and (x=88 or x=89 or x=90)) or 
+								((y=(26 + 10*i)) and (x=90 or x=92)) or 
+								((y=(27 + 10*i)) and (x=88 or x=89 or x=90)) or 
+								((y=(28 + 10*i)) and (x=88 or x=92)) or 
+								((y=(29 + 10*i)) and (x=88 or x=89 or x=90))) then
+								normal_video_word <= "111";
+							end if;
+							-- Printa pontuacao
+							centena := PONTUACAO_2/100;
+							dezena := (PONTUACAO_2 - (centena * 100))/10;
+							unidade := (PONTUACAO_2 - (centena * 100) - (dezena * 10));
+							
+							for j in 0 to 2 loop
+								if(j = 0) then
+									exibir := centena;
+								elsif(j = 1) then
+									exibir := dezena;
+								else
+									exibir := unidade;
+								end if;
+								if(exibir = 0) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 1) then
+									if (((y=(25 + 10*i)) and (x=(95+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(95+4*j))) or 
+									((y=(27 + 10*i)) and (x=(95+4*j))) or 
+									((y=(28 + 10*i)) and (x=(95+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 2) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 3) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 4) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 5) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 6) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 7) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 8) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 9) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								end if;
+							end loop;
+						ELSIF (i = 2) THEN
+							-- 3
+							if (((y=(25 + 10*i)) and (x=88 or x=89 or x=90)) or 
+								((y=(26 + 10*i)) and (x=90 or x=92)) or 
+								((y=(27 + 10*i)) and (x=88 or x=89 or x=90)) or 
+								((y=(28 + 10*i)) and (x=90 or x=92)) or 
+								((y=(29 + 10*i)) and (x=88 or x=89 or x=90))) then
+								normal_video_word <= "111";
+							end if;
+							
+							-- Printa pontuacao
+							centena := PONTUACAO_3/100;
+							dezena := (PONTUACAO_3 - (centena * 100))/10;
+							unidade := (PONTUACAO_3 - (centena * 100) - (dezena * 10));
+							
+							for j in 0 to 2 loop
+								if(j = 0) then
+									exibir := centena;
+								elsif(j = 1) then
+									exibir := dezena;
+								else
+									exibir := unidade;
+								end if;
+								if(exibir = 0) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 1) then
+									if (((y=(25 + 10*i)) and (x=(95+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(95+4*j))) or 
+									((y=(27 + 10*i)) and (x=(95+4*j))) or 
+									((y=(28 + 10*i)) and (x=(95+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 2) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 3) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 4) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 5) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 6) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 7) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 8) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 9) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								end if;
+							end loop;
+						ELSIF (i = 3) THEN
+							-- 4
+							if (((y=(25 + 10*i)) and (x=88 or x=90)) or 
+								((y=(26 + 10*i)) and (x=88 or x=90 or x=92)) or 
+								((y=(27 + 10*i)) and (x=88 or x=89 or x=90)) or 
+								((y=(28 + 10*i)) and (x=90 or x=92)) or 
+								((y=(29 + 10*i)) and (x=90))) then
+								normal_video_word <= "111";
+							end if;
+							
+							-- Printa pontuacao
+							centena := PONTUACAO_4/100;
+							dezena := (PONTUACAO_4 - (centena * 100))/10;
+							unidade := (PONTUACAO_4 - (centena * 100) - (dezena * 10));
+							
+							for j in 0 to 2 loop
+								if(j = 0) then
+									exibir := centena;
+								elsif(j = 1) then
+									exibir := dezena;
+								else
+									exibir := unidade;
+								end if;
+								if(exibir = 0) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 1) then
+									if (((y=(25 + 10*i)) and (x=(95+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(95+4*j))) or 
+									((y=(27 + 10*i)) and (x=(95+4*j))) or 
+									((y=(28 + 10*i)) and (x=(95+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 2) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 3) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 4) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 5) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 6) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 7) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 8) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 9) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								end if;
+							end loop;
+						ELSIF (i = 4) THEN
+							-- 5
+							if (((y=(25 + 10*i)) and (x=88 or x=89 or x=90)) or 
+								((y=(26 + 10*i)) and (x=88 or x=92)) or 
+								((y=(27 + 10*i)) and (x=88 or x=89 or x=90)) or 
+								((y=(28 + 10*i)) and (x=90 or x=92)) or 
+								((y=(29 + 10*i)) and (x=88 or x=89 or x=90))) then
+								normal_video_word <= "111";
+							end if;
+							
+							-- Printa pontuacao
+							centena := PONTUACAO_5/100;
+							dezena := (PONTUACAO_5 - (centena * 100))/10;
+							unidade := (PONTUACAO_5 - (centena * 100) - (dezena * 10));
+							
+							for j in 0 to 2 loop
+								if(j = 0) then
+									exibir := centena;
+								elsif(j = 1) then
+									exibir := dezena;
+								else
+									exibir := unidade;
+								end if;
+								if(exibir = 0) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 1) then
+									if (((y=(25 + 10*i)) and (x=(95+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(95+4*j))) or 
+									((y=(27 + 10*i)) and (x=(95+4*j))) or 
+									((y=(28 + 10*i)) and (x=(95+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 2) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 3) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 4) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 5) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 6) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 7) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 8) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 9) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								end if;
+							end loop;
+						ELSIF (i = 5) THEN
+							-- 6
+							if (((y=(25 + 10*i)) and (x=88 or x=89 or x=90)) or 
+								((y=(26 + 10*i)) and (x=88 or x=92)) or 
+								((y=(27 + 10*i)) and (x=88 or x=89 or x=90)) or 
+								((y=(28 + 10*i)) and (x=88 or x=90 or x=92)) or 
+								((y=(29 + 10*i)) and (x=88 or x=89 or x=90))) then
+								normal_video_word <= "111";
+							end if;
+							
+							-- Printa pontuacao
+							centena := PONTUACAO_6/100;
+							dezena := (PONTUACAO_6 - (centena * 100))/10;
+							unidade := (PONTUACAO_6 - (centena * 100) - (dezena * 10));
+							
+							for j in 0 to 2 loop
+								if(j = 0) then
+									exibir := centena;
+								elsif(j = 1) then
+									exibir := dezena;
+								else
+									exibir := unidade;
+								end if;
+								if(exibir = 0) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 1) then
+									if (((y=(25 + 10*i)) and (x=(95+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(95+4*j))) or 
+									((y=(27 + 10*i)) and (x=(95+4*j))) or 
+									((y=(28 + 10*i)) and (x=(95+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 2) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 3) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 4) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 5) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 6) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 7) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 8) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 9) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								end if;
+							end loop;
+						END IF;
+					end if;
+				end loop;
 				
 				-- Num Player
 				IF(PLAYER = 0) THEN
@@ -410,12 +1062,670 @@ BEGIN
 		
 				if(x = 39) then normal_video_word <= "111"; end if;
 				
-				if (STRIKE='1') then normal_video_word <= "100";
-				elsif (SPARE='1') then normal_video_word <= "100";
-				end if;
+				--if (STRIKE='1') then normal_video_word <= "100";
+				--elsif (SPARE='1') then normal_video_word <= "010";
+				--end if;
 				
 			ELSE
-				normal_video_word <= "110";
+				-- Label "Resultado"
+				if( ((y=5) AND (x=52 or x=53 or x=54 or x=58 or x=59 or x=60 or x=63 or x=64 or x=65 or x=67 or x=70 or x=72 or (x>=76 and x<=80) or x=83 or x=84 or x=87 or x=88 or x=89 or x=93 or x=94 or x=95)) or
+					 ((y=6) AND (x=52 or x=55 or x=57 or x=62 or x=67 or x=70 or x=72 or x=78 or x=82 or x=85 or x=87 or x=90 or x=92 or x=96)) or
+					 ((y=7) AND (x=52 or x=55 or x=57 or x=62 or x=67 or x=70 or x=72 or x=78 or x=82 or x=85 or x=87 or x=90 or x=92 or x=96 or x=99)) or
+					 ((y=8) AND (x=52 or x=53 or x=54 or x=57 or x=58 or x=59 or x=60 or x=63 or x=64 or x=67 or x=70 or x=72 or x=78 or x=82 or x=83 or x=84 or x=85 or x=87 or x=90 or x=92 or x=96)) or
+					 ((y=9) AND (x=52 or x=55 or x=57 or x=65 or x=67 or x=70 or x=72 or x=78 or x=82 or x=85 or x=87 or x=90 or x=92 or x=96)) or
+					 ((y=10) AND (x=52 or x=55 or x=57 or x=65 or x=67 or x=70 or x=72 or x=78 or x=82 or x=85 or x=87 or x=90 or x=92 or x=96 or x=99)) or
+					 ((y=11) AND (x=52 or x=55 or x=58 or x=59 or x=60 or x=62 or x=63 or x=64 or x=68 or x=69 or x=72 or x=73 or x=74 or x=75 or x=78 or x=82 or x=85 or x=87 or x=88 or x=89 or x=93 or x=94 or x=95)) or
+					 ((y=13) AND (x>=50 and x<=101)) ) then
+					normal_video_word <= "111";
+				end if;
+				
+				-- Cria label de jogadores
+				for i in 0 to 5 loop
+					if((i < PLAYERS - 1) or (i = PLAYERS - 1)) then
+						if (((y=(25 + 10*i)) and ((x>=52 and x<=55) or x=58 or x=59 or (x>=63 and x<=65) or x=68 or x=69 or (x>=72 and x<=74) or x=78 or x=79 or (x>=82 and x<=84))) or 
+							((y=(26 + 10*i)) and (x=55 or x=57 or x=60 or x=62 or x=67 or x=70 or x=72 or x=75 or x=77 or x=80 or x=82 or x=85)) or 
+							((y=(27 + 10*i)) and (x=55 or x=57 or x=60 or x=62 or x=64 or x=65 or x=67 or x=70 or x=72 or x=75 or x=77 or x=80 or (x>=82 and x<=84))) or 
+							((y=(28 + 10*i)) and (x=52 or x=55 or x=57 or x=60 or x=62 or x=65 or (x>=67 and x<=70) or x=72 or x=75 or x=77 or x=80 or x=82 or x=84)) or 
+							((y=(29 + 10*i)) and (x=53 or x=54 or x=58 or x=59 or x=63 or x=64 or x=67 or x=70 or (x>=72 and x<=74) or x=78 or x=79 or x=82 or x=85) ) ) then 
+							normal_video_word <= "111";
+						end if;
+						-- PLAYER NUMBER
+						IF (i = 0) THEN
+							-- 1
+							if (((y=(25 + 10*i)) and (x=89)) or 
+								((y=(26 + 10*i)) and (x=88 or x=89 or x=92)) or 
+								((y=(27 + 10*i)) and (x=89)) or 
+								((y=(28 + 10*i)) and (x=89 or x=92)) or 
+								((y=(29 + 10*i)) and (x=88 or x=89 or x=90))) then
+								normal_video_word <= "111";
+							end if;
+							
+								-- Printa pontuacao
+							centena := PONTUACAO_1/100;
+							dezena := (PONTUACAO_1 - (centena * 100))/10;
+							unidade := (PONTUACAO_1 - (centena * 100) - (dezena * 10));
+							
+							for j in 0 to 2 loop
+								if(j = 0) then
+									exibir := centena;
+								elsif(j = 1) then
+									exibir := dezena;
+								else
+									exibir := unidade;
+								end if;
+								if(exibir = 0) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 1) then
+									if (((y=(25 + 10*i)) and (x=(95+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(95+4*j))) or 
+									((y=(27 + 10*i)) and (x=(95+4*j))) or 
+									((y=(28 + 10*i)) and (x=(95+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 2) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 3) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 4) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 5) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 6) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 7) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 8) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 9) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								end if;
+							end loop;
+						ELSIF (i = 1) THEN				
+							-- 2
+							if (((y=(25 + 10*i)) and (x=88 or x=89 or x=90)) or 
+								((y=(26 + 10*i)) and (x=90 or x=92)) or 
+								((y=(27 + 10*i)) and (x=88 or x=89 or x=90)) or 
+								((y=(28 + 10*i)) and (x=88 or x=92)) or 
+								((y=(29 + 10*i)) and (x=88 or x=89 or x=90))) then
+								normal_video_word <= "111";
+							end if;
+							-- Printa pontuacao
+							centena := PONTUACAO_2/100;
+							dezena := (PONTUACAO_2 - (centena * 100))/10;
+							unidade := (PONTUACAO_2 - (centena * 100) - (dezena * 10));
+							
+							for j in 0 to 2 loop
+								if(j = 0) then
+									exibir := centena;
+								elsif(j = 1) then
+									exibir := dezena;
+								else
+									exibir := unidade;
+								end if;
+								if(exibir = 0) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 1) then
+									if (((y=(25 + 10*i)) and (x=(95+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(95+4*j))) or 
+									((y=(27 + 10*i)) and (x=(95+4*j))) or 
+									((y=(28 + 10*i)) and (x=(95+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 2) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 3) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 4) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 5) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 6) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 7) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 8) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 9) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								end if;
+							end loop;
+						ELSIF (i = 2) THEN
+							-- 3
+							if (((y=(25 + 10*i)) and (x=88 or x=89 or x=90)) or 
+								((y=(26 + 10*i)) and (x=90 or x=92)) or 
+								((y=(27 + 10*i)) and (x=88 or x=89 or x=90)) or 
+								((y=(28 + 10*i)) and (x=90 or x=92)) or 
+								((y=(29 + 10*i)) and (x=88 or x=89 or x=90))) then
+								normal_video_word <= "111";
+							end if;
+							
+							-- Printa pontuacao
+							centena := PONTUACAO_3/100;
+							dezena := (PONTUACAO_3 - (centena * 100))/10;
+							unidade := (PONTUACAO_3 - (centena * 100) - (dezena * 10));
+							
+							for j in 0 to 2 loop
+								if(j = 0) then
+									exibir := centena;
+								elsif(j = 1) then
+									exibir := dezena;
+								else
+									exibir := unidade;
+								end if;
+								if(exibir = 0) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 1) then
+									if (((y=(25 + 10*i)) and (x=(95+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(95+4*j))) or 
+									((y=(27 + 10*i)) and (x=(95+4*j))) or 
+									((y=(28 + 10*i)) and (x=(95+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 2) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 3) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 4) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 5) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 6) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 7) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 8) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 9) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								end if;
+							end loop;
+						ELSIF (i = 3) THEN
+							-- 4
+							if (((y=(25 + 10*i)) and (x=88 or x=90)) or 
+								((y=(26 + 10*i)) and (x=88 or x=90 or x=92)) or 
+								((y=(27 + 10*i)) and (x=88 or x=89 or x=90)) or 
+								((y=(28 + 10*i)) and (x=90 or x=92)) or 
+								((y=(29 + 10*i)) and (x=90))) then
+								normal_video_word <= "111";
+							end if;
+							
+							-- Printa pontuacao
+							centena := PONTUACAO_4/100;
+							dezena := (PONTUACAO_4 - (centena * 100))/10;
+							unidade := (PONTUACAO_4 - (centena * 100) - (dezena * 10));
+							
+							for j in 0 to 2 loop
+								if(j = 0) then
+									exibir := centena;
+								elsif(j = 1) then
+									exibir := dezena;
+								else
+									exibir := unidade;
+								end if;
+								if(exibir = 0) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 1) then
+									if (((y=(25 + 10*i)) and (x=(95+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(95+4*j))) or 
+									((y=(27 + 10*i)) and (x=(95+4*j))) or 
+									((y=(28 + 10*i)) and (x=(95+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 2) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 3) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 4) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 5) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 6) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 7) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 8) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 9) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								end if;
+							end loop;
+						ELSIF (i = 4) THEN
+							-- 5
+							if (((y=(25 + 10*i)) and (x=88 or x=89 or x=90)) or 
+								((y=(26 + 10*i)) and (x=88 or x=92)) or 
+								((y=(27 + 10*i)) and (x=88 or x=89 or x=90)) or 
+								((y=(28 + 10*i)) and (x=90 or x=92)) or 
+								((y=(29 + 10*i)) and (x=88 or x=89 or x=90))) then
+								normal_video_word <= "111";
+							end if;
+							
+							-- Printa pontuacao
+							centena := PONTUACAO_5/100;
+							dezena := (PONTUACAO_5 - (centena * 100))/10;
+							unidade := (PONTUACAO_5 - (centena * 100) - (dezena * 10));
+							
+							for j in 0 to 2 loop
+								if(j = 0) then
+									exibir := centena;
+								elsif(j = 1) then
+									exibir := dezena;
+								else
+									exibir := unidade;
+								end if;
+								if(exibir = 0) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 1) then
+									if (((y=(25 + 10*i)) and (x=(95+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(95+4*j))) or 
+									((y=(27 + 10*i)) and (x=(95+4*j))) or 
+									((y=(28 + 10*i)) and (x=(95+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 2) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 3) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 4) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 5) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 6) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 7) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 8) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 9) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								end if;
+							end loop;
+						ELSIF (i = 5) THEN
+							-- 6
+							if (((y=(25 + 10*i)) and (x=88 or x=89 or x=90)) or 
+								((y=(26 + 10*i)) and (x=88 or x=92)) or 
+								((y=(27 + 10*i)) and (x=88 or x=89 or x=90)) or 
+								((y=(28 + 10*i)) and (x=88 or x=90 or x=92)) or 
+								((y=(29 + 10*i)) and (x=88 or x=89 or x=90))) then
+								normal_video_word <= "111";
+							end if;
+							
+							-- Printa pontuacao
+							centena := PONTUACAO_6/100;
+							dezena := (PONTUACAO_6 - (centena * 100))/10;
+							unidade := (PONTUACAO_6 - (centena * 100) - (dezena * 10));
+							
+							for j in 0 to 2 loop
+								if(j = 0) then
+									exibir := centena;
+								elsif(j = 1) then
+									exibir := dezena;
+								else
+									exibir := unidade;
+								end if;
+								if(exibir = 0) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 1) then
+									if (((y=(25 + 10*i)) and (x=(95+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(95+4*j))) or 
+									((y=(27 + 10*i)) and (x=(95+4*j))) or 
+									((y=(28 + 10*i)) and (x=(95+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 2) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 3) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 4) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 5) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 6) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 7) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 8) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								elsif(exibir = 9) then
+									if (((y=(25 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(26 + 10*i)) and (x=(94+4*j) or x=(96+4*j))) or 
+									((y=(27 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j))) or 
+									((y=(28 + 10*i)) and (x=(96+4*j))) or 
+									((y=(29 + 10*i)) and (x=(94+4*j) or x=(95+4*j) or x=(96+4*j)))) then
+										normal_video_word <= "111";
+									end if;
+								end if;
+							end loop;
+						END IF;
+					end if;
+				end loop;
+				
+				if( y<=2 or y>89 or x<40 or x>120 ) then
+					normal_video_word <= "110";
+				end if;
 			END IF;
 			
 			normal_video_address <= x + y * HORZ_SIZE;

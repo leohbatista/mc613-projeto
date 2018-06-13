@@ -47,7 +47,8 @@ architecture rtl of boliche is
 	--signal spare_marks : std_logic_vector(0 to 5);
 	
 	signal spares : std_logic_vector(0 to 5);
-	signal strikes : std_logic_vector(0 to 5);
+	signal strikes_last : std_logic_vector(0 to 5);
+	signal strikes_before_last : std_logic_vector(0 to 5);
 	
 	signal jogador_vez : integer range 0 TO 5;
 	signal jogada : integer range 0 to 2;
@@ -108,7 +109,8 @@ begin
 
 	-- Logic to advance to the next state
 	process (CLOCK)
-		variable pontos_pinos : natural;
+		variable pontos_pinos : natural := 0;
+		variable last_pinos: integer := 0;
 	begin	
 		if (rising_edge(CLOCK)) then
 			-- Tratamento de se o botao continua apertado
@@ -125,8 +127,15 @@ begin
 						pinos <= "0000000000";
 						flag_strike <= '0';
 						flag_spare <= '0';
-						
-						strikes <= "000000";
+
+						pontuacao(0) <= 0;
+						pontuacao(1) <= 0;
+						pontuacao(2) <= 0;
+						pontuacao(3) <= 0;
+						pontuacao(4) <= 0;
+						pontuacao(5) <= 0;
+						strikes_last <= "000000";
+						strikes_before_last <= "000000";
 						spares <= "000000";
 						
 						key_pressed <= '0';
@@ -166,19 +175,28 @@ begin
 							
 							if(jogada = 0) then
 								pinos <= SW(9 downto 0);
-								
+								pontos_pinos := 0;
 								for i in pinos'range loop
 									if pinos(i) = '1' then
 										pontos_pinos := pontos_pinos + 1;
 									end if;
-								end loop;								
+								end loop;															
 								
 								flag_spare <= '0';
+								
+								if(strikes_before_last(jogador_vez) = '1') then
+									pontuacao(jogador_vez) <= pontuacao(jogador_vez) + pontos_pinos;
+									strikes_before_last(jogador_vez) <= '0';
+								end if;
 								
 								-- Se rodada anterior foi spare, soma pinos derrubados na primeira jogada
 								if(spares(jogador_vez) = '1') then
 									pontuacao(jogador_vez) <= pontuacao(jogador_vez) + pontos_pinos;
-									spares(jogador_vez) <= '1';
+									spares(jogador_vez) <= '0';
+								elsif(strikes_last(jogador_vez) = '1') then
+									pontuacao(jogador_vez) <= pontuacao(jogador_vez) + pontos_pinos;
+									strikes_before_last(jogador_vez) <= strikes_last(jogador_vez);
+									strikes_last(jogador_vez) <= '0';
 								end if;
 
 								if (pontos_pinos = 10) then						
@@ -193,15 +211,23 @@ begin
 									end if;
 									
 									flag_strike <= '1';
-									strikes(jogador_vez) <= '1';
+									strikes_last(jogador_vez) <= '1';
+									jogada <= 0;
 								else
 									jogada <= 1;
 									flag_strike <= '0';
-									strikes(jogador_vez) <= '0';
-								end if;								
-							else
-								pinos <= pinos or SW(9 downto 0);
+									strikes_last(jogador_vez) <= '0';
+								end if;		
 								
+							else
+								last_pinos := 0;
+								for i in pinos'range loop
+									if pinos(i) = '1' then
+										last_pinos := last_pinos + 1;
+									end if;
+								end loop;
+								
+								pinos <= pinos or SW(9 downto 0);
 								for i in pinos'range loop
 									if pinos(i) = '1' then
 										pontos_pinos := pontos_pinos + 1;
@@ -210,14 +236,21 @@ begin
 								
 								
 								-- Incrementa pontuacao
-								pontuacao(jogador_vez) <= pontuacao(jogador_vez) + pontos_pinos;
+								pontuacao(jogador_vez) <= pontuacao(jogador_vez) + pontos_pinos - last_pinos;
 								
-								-- Se rodada anterior foi strike, soma os pinos derrubados novamente
-								if(strikes(jogador_vez) = '1') then
-									pontuacao(jogador_vez) <= pontuacao(jogador_vez) + pontos_pinos;
-									strikes(jogador_vez) <= '0';
+								if(strikes_before_last(jogador_vez) = '1') then
+									pontuacao(jogador_vez) <= pontuacao(jogador_vez) + pontos_pinos - last_pinos;
+									strikes_before_last(jogador_vez) <= '0';
 								end if;
 								
+								-- Se rodada anterior foi strike, soma os pinos derrubados novamente
+								if(strikes_last(jogador_vez) = '1') then
+									pontuacao(jogador_vez) <= pontuacao(jogador_vez) + pontos_pinos - last_pinos;
+									strikes_before_last(jogador_vez) <= strikes_last(jogador_vez);
+									strikes_last(jogador_vez) <= '0';
+								end if;
+								
+
 								if (pontos_pinos = 10) then
 									-- Foi spare nessa rodada
 									flag_spare <= '1';
@@ -226,7 +259,6 @@ begin
 									flag_spare <= '0';
 									spares(jogador_vez) <= '0';
 								end if;
-								
 								
 								if (jogador_vez = (players_qtty-1)) then 
 									jogador_vez <= 0;
@@ -246,7 +278,7 @@ begin
 						LEDR(0) <= flag_spare;
 						LEDR(1) <= flag_strike;
 					when resultado=>
-					
+						
 				end case;
 			END IF;			
 		end if;
