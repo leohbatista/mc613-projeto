@@ -1,5 +1,6 @@
 library ieee;
 use ieee.std_logic_1164.all;
+use IEEE.NUMERIC_STD.all;
 use work.tela;
 use work.kbd_bowling_ctrl;
 
@@ -7,6 +8,7 @@ entity boliche is
 
 	port(
 		SW 					: IN STD_LOGIC_VECTOR(9 downto 0);
+		LEDR					: OUT STD_LOGIC_VECTOR(9 downto 0);
 		CLOCK				: IN STD_LOGIC;
 		KEY				: IN STD_LOGIC_VECTOR(1 downto 0);
 		VGA_R, VGA_G, VGA_B	: OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
@@ -20,7 +22,10 @@ entity boliche is
 end entity;
 
 architecture rtl of boliche is
-
+	
+	SIGNAL slow_clock : STD_LOGIC;
+	CONSTANT CONS_CLOCK_DIV : INTEGER := 1000000;
+	
 	-- Build an enumerated type for the state machine
 	type state_type is (reset, inicio, jogando, resultado);
 
@@ -29,7 +34,6 @@ architecture rtl of boliche is
 	signal state_code: integer RANGE 0 TO 2;
 
 	SIGNAL key_pressed, last_key_state : std_logic;
-	--signal placar 
 	
 	signal players : std_logic_vector (2 downto 0);
 	signal players_qtty : integer RANGE 0 TO 6;
@@ -37,11 +41,19 @@ architecture rtl of boliche is
 	type pontos is array (0 to 5) of integer range 0 to 300; 
 	signal pontuacao : pontos;
 	
+	--type strikes is array (0 to 5) of std_logic_vector(0 to 1);
+	--signal strike_marks : strikes;
+	
+	--signal spare_marks : std_logic_vector(0 to 5);
+	
+	signal spares : std_logic_vector(0 to 5);
+	signal strikes : std_logic_vector(0 to 5);
+	
 	signal jogador_vez : integer range 0 TO 5;
-	signal jogada : std_logic;
+	signal jogada : integer range 0 to 2;
 	signal rodada : integer range 1 to 10;
 	signal pinos  : std_logic_vector(9 downto 0);
-	signal flag_strike, flag_spare : std_logic;
+	signal flag_strike, flag_spare : std_logic;	
 begin
 
 	t: tela port map (
@@ -51,6 +63,12 @@ begin
 				PLAYER => jogador_vez,
 				JOGADA => jogada,
 				RODADA => rodada,
+				PONTUACAO_1 => pontuacao(0),
+				PONTUACAO_2 => pontuacao(1),
+				PONTUACAO_3 => pontuacao(2),
+				PONTUACAO_4 => pontuacao(3),
+				PONTUACAO_5 => pontuacao(4),
+				PONTUACAO_6 => pontuacao(5),
 				SPARE => flag_spare,
 				STRIKE => flag_strike,
 				CLOCK_50 => CLOCK,
@@ -65,10 +83,32 @@ begin
 				PS2_DAT => PS2_DAT,
 				PS2_CLK => PS2_CLK,
 				KEY => players
-		);			
+		);	
+		
+	clock_divider:
+	PROCESS (CLOCK, KEY(0))
+		VARIABLE i : INTEGER := 0;
+	BEGIN
+		IF (KEY(0) = '0') THEN
+			i := 0;
+			slow_clock <= '0';
+		ELSIF (rising_edge(CLOCK)) THEN
+			IF (i <= CONS_CLOCK_DIV/2) THEN
+				i := i + 1;
+				slow_clock <= '0';
+			ELSIF (i < CONS_CLOCK_DIV-1) THEN
+				i := i + 1;
+				slow_clock <= '1';
+			ELSE		
+				i := 0;
+			END IF;	
+		END IF;
+	END PROCESS;
+	
 
 	-- Logic to advance to the next state
 	process (CLOCK)
+		variable pontos_pinos : natural;
 	begin	
 		if (rising_edge(CLOCK)) then
 			-- Tratamento de se o botao continua apertado
@@ -81,13 +121,18 @@ begin
 						players_qtty <= 0;
 						rodada <= 1;
 						jogador_vez <= 0;
-						jogada <= '0';
+						jogada <= 0;
 						pinos <= "0000000000";
 						flag_strike <= '0';
 						flag_spare <= '0';
+						
+						strikes <= "000000";
+						spares <= "000000";
+						
 						key_pressed <= '0';
 						last_key_state <= '0';
 						state <= inicio;
+						pontos_pinos := 0;
 					when inicio=>					
 						case (players(2 downto 0)) is
 							when "001" => players_qtty <= 1;
@@ -118,10 +163,25 @@ begin
 						end if;
 						
 						if (key_pressed = '1') then
-							if(jogada = '0') then
+							
+							if(jogada = 0) then
 								pinos <= SW(9 downto 0);
 								
-								if (pinos = "1111111111") then									
+								for i in pinos'range loop
+									if pinos(i) = '1' then
+										pontos_pinos := pontos_pinos + 1;
+									end if;
+								end loop;								
+								
+								flag_spare <= '0';
+								
+								-- Se rodada anterior foi spare, soma pinos derrubados na primeira jogada
+								if(spares(jogador_vez) = '1') then
+									pontuacao(jogador_vez) <= pontuacao(jogador_vez) + pontos_pinos;
+									spares(jogador_vez) <= '1';
+								end if;
+
+								if (pontos_pinos = 10) then						
 									if (jogador_vez = (players_qtty-1)) then 
 										jogador_vez <= 0;
 										case (rodada) is
@@ -133,28 +193,40 @@ begin
 									end if;
 									
 									flag_strike <= '1';
---									for I in 0 to 50000000 loop
---										if(I = 50000000) then
---											flag_strike <= '0';
---											pinos <= "0000000000";
---										end if;
---									end loop;
-									
+									strikes(jogador_vez) <= '1';
 								else
-									jogada <= '1';
+									jogada <= 1;
+									flag_strike <= '0';
+									strikes(jogador_vez) <= '0';
 								end if;								
 							else
 								pinos <= pinos or SW(9 downto 0);
 								
-								if (pinos = "1111111111") then
-									flag_spare <= '1';
---									for I in 0 to 50000000 loop
---										if(I = 50000000) then
---											flag_spare <= '0';
---											pinos <= "0000000000";
---										end if;
---									end loop;
+								for i in pinos'range loop
+									if pinos(i) = '1' then
+										pontos_pinos := pontos_pinos + 1;
+									end if;
+								end loop;
+								
+								
+								-- Incrementa pontuacao
+								pontuacao(jogador_vez) <= pontuacao(jogador_vez) + pontos_pinos;
+								
+								-- Se rodada anterior foi strike, soma os pinos derrubados novamente
+								if(strikes(jogador_vez) = '1') then
+									pontuacao(jogador_vez) <= pontuacao(jogador_vez) + pontos_pinos;
+									strikes(jogador_vez) <= '0';
 								end if;
+								
+								if (pontos_pinos = 10) then
+									-- Foi spare nessa rodada
+									flag_spare <= '1';
+									spares(jogador_vez) <= '1';
+								else 
+									flag_spare <= '0';
+									spares(jogador_vez) <= '0';
+								end if;
+								
 								
 								if (jogador_vez = (players_qtty-1)) then 
 									jogador_vez <= 0;
@@ -165,18 +237,21 @@ begin
 								else	
 									jogador_vez <= jogador_vez + 1;
 								end if;
-								--pinos <= "0000000000";
-								jogada <= '0';
+								
+								jogada <= 0;
 							end if;
 							key_pressed <= '0';
+							
 						end if;
+						LEDR(0) <= flag_spare;
+						LEDR(1) <= flag_strike;
 					when resultado=>
-						
+					
 				end case;
 			END IF;			
 		end if;
 	end process;
-
+	
 	-- Output depends solely on the current state
 	process (state)
 	begin

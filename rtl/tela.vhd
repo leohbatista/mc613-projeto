@@ -7,8 +7,14 @@ ENTITY tela IS
 		PINOS					: IN STD_LOGIC_VECTOR(0 to 9);
 		PLAYERS				: IN INTEGER RANGE 0 TO 6;
 		PLAYER				: IN INTEGER RANGE 0 TO 5;
-		JOGADA				: IN STD_LOGIC;
+		JOGADA				: IN INTEGER RANGE 0 TO 2;
 		RODADA				: IN INTEGER RANGE 1 TO 10;
+		PONTUACAO_1			: IN INTEGER RANGE 0 TO 300;
+		PONTUACAO_2			: IN INTEGER RANGE 0 TO 300;
+		PONTUACAO_3			: IN INTEGER RANGE 0 TO 300;
+		PONTUACAO_4			: IN INTEGER RANGE 0 TO 300;
+		PONTUACAO_5			: IN INTEGER RANGE 0 TO 300;
+		PONTUACAO_6			: IN INTEGER RANGE 0 TO 300;
 		SPARE, STRIKE		: IN STD_LOGIC;
 		CLOCK_50				: IN STD_LOGIC;
 		KEY				: IN STD_LOGIC_VECTOR(0 downto 0);
@@ -41,7 +47,7 @@ ARCHITECTURE behavior OF tela IS
 	CONSTANT HORZ_SIZE : INTEGER := 160;
 	CONSTANT VERT_SIZE : INTEGER := 120;
 	
-	SIGNAL slow_clock : STD_LOGIC;
+	SIGNAL slow_clock, pixel_out : STD_LOGIC;
 	
 	SIGNAL clear_video_address	,
 		normal_video_address	,
@@ -132,7 +138,7 @@ BEGIN
 			END CASE;
 		END IF;	
 	END PROCESS;
-		
+				
 	vga_writer:
 	PROCESS (clk50M, rstn, normal_video_address)
 	BEGIN
@@ -200,7 +206,158 @@ BEGIN
 			ELSIF(GAME_STATE = 1) THEN
 			
 				-- GAME SCREEN
-			
+				
+				-- Label "Bola:"
+				if( ((y=45) AND (x=2 or x=3 or x=6 or x=7 or x=8 or x=10 or x=14 or x=15 or x=16)) or
+					 ((y=46 or y=48) AND (x=2 or x=4 or x=6 or x=8 or x=10 or x=14 or x=16 or x=18)) or
+					 ((y=47) AND (x=2 or x=3 or x=4 or x=6 or x=8 or x=10 or x=14 or x=15 or x=16)) or
+					 ((y=49) AND (x=2 or x=3 or x=6 or x=7 or x=8 or x=10 or x=11 or x=12 or x=14 or x=16)) ) then
+					normal_video_word <= "111";
+				end if;
+				
+				-- Num Bola
+				IF(JOGADA = 0) THEN
+					IF( ((x=20) and (y=46 or y=49))	or
+						 ((x=21) and (y>=45 and y<=49)) or
+						 ((x=22) and (y=49)) ) THEN
+						normal_video_word <= "110";
+					END IF;
+				ELSIF(JOGADA = 1) THEN
+					IF( ((x=20 or x=21 or x=22) and (y=45 or y=47 or y=49)) or
+						 ((x=22) and (y=46)) or
+						 ((x=20) and (y=48)) ) THEN
+						normal_video_word <= "110";
+					END IF;
+				ELSE
+					IF( ((x=20 or x=21 or x=22) and (y=45 or y=47 or y=49)) or
+						 ((x=22) and (y=46 or y=48)) ) THEN
+						normal_video_word <= "011";
+					END IF;	
+				END IF;
+				
+				-- Label "Player:"
+				if( ((y=51) AND (x=2 or x=3 or x=4 or x=6 or x=10 or x=11 or x=12 or x=14 or x=16 or x=18 or x=19 or x=20 or x=22 or x=23)) or
+					 ((y=52) AND (x=2 or x=4 or x=6 or x=10 or x=12 or x=14 or x=16 or x=18 or x=22 or x=24 or x=26)) or
+					 ((y=53) AND (x=2 or x=3 or x=4 or x=6 or x=10 or x=11 or x=12 or x=15 or x=18 or x=19 or x=20 or x=22 or x=23)) or
+					 ((y=54) AND (x=2 or x=6 or x=10 or x=12 or x=15 or x=18 or x=22 or x=24 or x=26)) or
+					 ((y=55) AND (x=2 or x=6 or x=7 or x=8 or x=10 or x=12 or x=15 or x=18 or x=19 or x=20 or x=22 or x=24)) ) then
+					normal_video_word <= "111";
+				end if;
+				
+				-- Label "Pontos"
+				
+				-- Num Player
+				IF(PLAYER = 0) THEN
+					IF( ((x=28) and (y=52 or y=55))	or
+						 ((x=29) and (y>=51 and y<=55)) or
+						 ((x=30) and (y=55)) ) THEN
+						normal_video_word <= "011";
+					END IF;
+					
+				ELSIF(PLAYER = 1) THEN
+					IF( ((x=28 or x=29 or x=30) and (y=51 or y=53 or y=55)) or
+						 ((x=30) and (y=52)) or
+						 ((x=28) and (y=54)) ) THEN
+						normal_video_word <= "011";
+					END IF;
+				ELSIF(PLAYER = 2) THEN
+					IF( ((x=28 or x=29 or x=30) and (y=51 or y=53 or y=55)) or
+						 ((x=30) and (y=52 or y=54)) ) THEN
+						normal_video_word <= "011";
+					END IF;
+				ELSIF(PLAYER = 3) THEN
+					IF( ((x=28) and (y=51 or y=52 or y=53))	or
+						 ((x=29) and (y=53)) or
+						 ((x=30) and (y>=51 and y<=55)) ) THEN
+						normal_video_word <= "011";
+					END IF;
+				ELSIF(PLAYER = 4) THEN
+					IF( ((x=28 or x=29 or x=30) and (y=51 or y=53 or y=55)) or
+						 ((x=28) and (y=52)) or
+						 ((x=30) and (y=54)) ) THEN
+						normal_video_word <= "011";
+					END IF;
+				ELSIF(PLAYER = 5) THEN
+					IF( ((x=28 or x=29 or x=30) and (y=51 or y=53 or y=55)) or
+						 ((x=28) and (y=52 or y=54)) or
+						 ((x=30) and (y=54)) ) THEN
+						normal_video_word <= "011";
+					END IF;
+				END IF;							
+				
+				-- Label "Rodada:"
+				if( ((y=57) AND (x=2 or x=3 or x=6 or x=7 or x=8 or x=10 or x=11 or x=14 or x=15 or x=16 or x=18 or x=19 or x=22 or x=23 or x=2)) or
+					 ((y=58) AND (x=2 or x=4 or x=6 or x=8 or x=10 or x=12 or x=14 or x=16 or x=18 or x=20 or x=22 or x=24 or x=26)) or
+					 ((y=59) AND (x=2 or x=3 or x=6 or x=8 or x=10 or x=12 or x=14 or x=15 or x=16 or x=18 or x=20 or x=22 or x=23 or x=24)) or
+					 ((y=60) AND (x=2 or x=4 or x=6 or x=8 or x=10 or x=12 or x=14 or x=16 or x=18 or x=20 or x=22 or x=24 or x=26)) or
+					 ((y=61) AND (x=2 or x=4 or x=6 or x=7 or x=8 or x=10 or x=11 or x=14 or x=16 or x=18 or x=19 or x=22 or x=24)) ) then
+					normal_video_word <= "111";
+				end if;
+				
+				-- Num Rodada
+				IF(RODADA = 1) THEN
+					IF( ((x=28) and (y=58 or y=61))	or
+						 ((x=29) and (y>=57 and y<=61)) or
+						 ((x=30) and (y=61)) ) THEN
+						normal_video_word <= "101";
+					END IF;
+				ELSIF(RODADA = 2) THEN
+					IF( ((x=28 or x=29 or x=30) and (y=57 or y=59 or y=61)) or
+						 ((x=30) and (y=58)) or
+						 ((x=28) and (y=60)) ) THEN
+						normal_video_word <= "101";
+					END IF;
+				ELSIF(RODADA = 3) THEN
+					IF( ((x=28 or x=29 or x=30) and (y=57 or y=59 or y=61)) or
+						 ((x=30) and (y=58 or y=60)) ) THEN
+						normal_video_word <= "101";
+					END IF;
+				ELSIF(RODADA = 4) THEN
+					IF( ((x=28) and (y=57 or y=58 or y=59))	or
+						 ((x=29) and (y=59)) or
+						 ((x=30) and (y>=57 and y<=61)) ) THEN
+						normal_video_word <= "101";
+					END IF;
+				ELSIF(RODADA = 5) THEN
+					IF( ((x=28 or x=29 or x=30) and (y=57 or y=59 or y=61)) or
+						 ((x=28) and (y=58)) or
+						 ((x=30) and (y=60)) ) THEN
+						normal_video_word <= "101";
+					END IF;
+				ELSIF(RODADA = 6) THEN
+					IF( ((x=28 or x=29 or x=30) and (y=57 or y=59 or y=61)) or
+						 ((x=28) and (y=58 or y=60)) or
+						 ((x=30) and (y=60)) ) THEN
+						normal_video_word <= "101";
+					END IF;
+				ELSIF(RODADA = 7) THEN
+					IF( ((x=28) and (y=57 or y=59))	or
+						 ((x=29) and (y>=57 and y<=61)) or
+						 ((x=30) and (y=59)) ) THEN
+						normal_video_word <= "101";
+					END IF;
+				ELSIF(RODADA = 8) THEN
+					IF( ((x=28 or x=29 or x=30) and (y=57 or y=59 or y=61)) or
+						 ((x=28 or x=30) and (y=58 or y=60)) ) THEN
+						normal_video_word <= "101";
+					END IF;
+				ELSIF(RODADA = 9) THEN
+					IF( ((x=28 or x=29 or x=30) and (y=57 or y=59 or y=61)) or
+						 ((x=30) and (y=58 or y=60)) or
+						 ((x=28) and (y=58)) ) THEN
+						normal_video_word <= "101";
+					END IF;
+				ELSIF(RODADA = 10) THEN
+					IF( ((x=28) and (y=58 or y=61))	or
+						 ((x=29 or x=32 or x=34) and (y>=57 and y<=61)) or
+						 ((x=30) and (y=61)) or
+						 ((x=33) AND (y=57 or y=61))	) THEN
+						normal_video_word <= "101";
+					END IF;
+				END IF;
+				
+				
+				
 				-- Pino 6	
 				if ((x>=5 and x<=9 and y>=5 and y<=9)) then
 					if PINOS(6) = '0' THEN normal_video_word <= "111"; ELSE normal_video_word <= "100"; END IF;
@@ -252,16 +409,9 @@ BEGIN
 				end if;
 		
 				if(x = 39) then normal_video_word <= "111"; end if;
-
-				--testes debug
-				if ( y=45 and ((x=50 and JOGADA='0') or (x=51 and JOGADA='1')) ) then normal_video_word <= "110"; end if;
 				
-				if ( y=48 and x=(50+PLAYER) ) then normal_video_word <= "011"; end if;
-				 
-				if( y=51 and x=(49+RODADA) ) then normal_video_word <= "101"; end if;
-				
-				if (STRIKE = '1' and y=45 and x=55) then normal_video_word <= "010";
-				elsif (SPARE = '1' and y=45 and x=57) then normal_video_word <= "001";
+				if (STRIKE='1') then normal_video_word <= "100";
+				elsif (SPARE='1') then normal_video_word <= "100";
 				end if;
 				
 			ELSE
