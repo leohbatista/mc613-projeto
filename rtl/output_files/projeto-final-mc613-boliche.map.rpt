@@ -1,5 +1,5 @@
 Analysis & Synthesis report for projeto-final-mc613-boliche
-Mon Jun 11 22:59:32 2018
+Wed Jun 13 05:14:08 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -14,29 +14,42 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis RAM Summary
-  9. State Machine - |boliche|state
- 10. State Machine - |boliche|kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|cmdstate
- 11. State Machine - |boliche|kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|state
- 12. User-Specified and Inferred Latches
- 13. Registers Removed During Synthesis
- 14. Removed Registers Triggering Further Register Optimizations
- 15. General Register Statistics
- 16. Inverted Register Statistics
- 17. Registers Packed Into Inferred Megafunctions
- 18. Multiplexer Restructuring Statistics (Restructuring Performed)
- 19. Source assignments for tela:t|vgacon:vga_component|dual_clock_ram:vgamem|altsyncram:ram_block_rtl_0|altsyncram_akl1:auto_generated
- 20. Parameter Settings for User Entity Instance: tela:t|vgacon:vga_component
- 21. Parameter Settings for User Entity Instance: tela:t|vgacon:vga_component|vga_pll:divider|vga_pll_0002:vga_pll_inst|altera_pll:altera_pll_i
- 22. Parameter Settings for User Entity Instance: tela:t|vgacon:vga_component|dual_clock_ram:vgamem
- 23. Parameter Settings for User Entity Instance: kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst
- 24. Parameter Settings for User Entity Instance: kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl
- 25. Parameter Settings for Inferred Entity Instance: tela:t|vgacon:vga_component|dual_clock_ram:vgamem|altsyncram:ram_block_rtl_0
- 26. altsyncram Parameter Settings by Entity Instance
- 27. Port Connectivity Checks: "kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst"
- 28. Port Connectivity Checks: "tela:t|vgacon:vga_component"
- 29. Post-Synthesis Netlist Statistics for Top Partition
- 30. Elapsed Time Per Partition
- 31. Analysis & Synthesis Messages
+  9. Analysis & Synthesis DSP Block Usage Summary
+ 10. State Machine - |boliche|state
+ 11. State Machine - |boliche|kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|cmdstate
+ 12. State Machine - |boliche|kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|state
+ 13. User-Specified and Inferred Latches
+ 14. Registers Removed During Synthesis
+ 15. Removed Registers Triggering Further Register Optimizations
+ 16. General Register Statistics
+ 17. Inverted Register Statistics
+ 18. Registers Packed Into Inferred Megafunctions
+ 19. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 20. Source assignments for tela:t|vgacon:vga_component|dual_clock_ram:vgamem|altsyncram:ram_block_rtl_0|altsyncram_akl1:auto_generated
+ 21. Parameter Settings for User Entity Instance: tela:t|vgacon:vga_component
+ 22. Parameter Settings for User Entity Instance: tela:t|vgacon:vga_component|vga_pll:divider|vga_pll_0002:vga_pll_inst|altera_pll:altera_pll_i
+ 23. Parameter Settings for User Entity Instance: tela:t|vgacon:vga_component|dual_clock_ram:vgamem
+ 24. Parameter Settings for User Entity Instance: kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst
+ 25. Parameter Settings for User Entity Instance: kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl
+ 26. Parameter Settings for Inferred Entity Instance: tela:t|vgacon:vga_component|dual_clock_ram:vgamem|altsyncram:ram_block_rtl_0
+ 27. Parameter Settings for Inferred Entity Instance: tela:t|lpm_divide:Div0
+ 28. Parameter Settings for Inferred Entity Instance: tela:t|lpm_divide:Div1
+ 29. Parameter Settings for Inferred Entity Instance: tela:t|lpm_divide:Div2
+ 30. Parameter Settings for Inferred Entity Instance: tela:t|lpm_divide:Div3
+ 31. Parameter Settings for Inferred Entity Instance: tela:t|lpm_divide:Div4
+ 32. Parameter Settings for Inferred Entity Instance: tela:t|lpm_divide:Div5
+ 33. Parameter Settings for Inferred Entity Instance: tela:t|lpm_divide:Div6
+ 34. Parameter Settings for Inferred Entity Instance: tela:t|lpm_divide:Div7
+ 35. Parameter Settings for Inferred Entity Instance: tela:t|lpm_divide:Div8
+ 36. Parameter Settings for Inferred Entity Instance: tela:t|lpm_divide:Div9
+ 37. Parameter Settings for Inferred Entity Instance: tela:t|lpm_divide:Div10
+ 38. Parameter Settings for Inferred Entity Instance: tela:t|lpm_divide:Div11
+ 39. altsyncram Parameter Settings by Entity Instance
+ 40. Port Connectivity Checks: "kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst"
+ 41. Port Connectivity Checks: "tela:t|vgacon:vga_component"
+ 42. Post-Synthesis Netlist Statistics for Top Partition
+ 43. Elapsed Time Per Partition
+ 44. Analysis & Synthesis Messages
 
 
 
@@ -62,17 +75,17 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Jun 11 22:59:32 2018       ;
+; Analysis & Synthesis Status     ; Successful - Wed Jun 13 05:14:08 2018       ;
 ; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; projeto-final-mc613-boliche                 ;
 ; Top-level Entity Name           ; boliche                                     ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 252                                         ;
-; Total pins                      ; 44                                          ;
+; Total registers                 ; 345                                         ;
+; Total pins                      ; 54                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 57,600                                      ;
-; Total DSP Blocks                ; 0                                           ;
+; Total DSP Blocks                ; 6                                           ;
 ; Total HSSI RX PCSs              ; 0                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
 ; Total HSSI TX PCSs              ; 0                                           ;
@@ -183,41 +196,53 @@ refer to the applicable agreement for further details.
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.0%      ;
-;     Processors 3-4         ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                      ;
-+----------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                        ; Library ;
-+----------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------------------+---------+
-; kbdex_ctrl.vhd                   ; yes             ; User VHDL File                         ; /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd                  ;         ;
-; ps2_iobase.vhd                   ; yes             ; User VHDL File                         ; /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/ps2_iobase.vhd                  ;         ;
-; vga_pll.vhd                      ; yes             ; User Wizard-Generated File             ; /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/vga_pll.vhd                     ;         ;
-; vga_pll/vga_pll_0002.v           ; yes             ; User Verilog HDL File                  ; /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/vga_pll/vga_pll_0002.v          ; vga_pll ;
-; vgacon.vhd                       ; yes             ; User VHDL File                         ; /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/vgacon.vhd                      ;         ;
-; projeto-final-mc613-boliche.vhd  ; yes             ; User VHDL File                         ; /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/projeto-final-mc613-boliche.vhd ;         ;
-; tela.vhd                         ; yes             ; User VHDL File                         ; /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/tela.vhd                        ;         ;
-; kbd_bowling.vhd                  ; yes             ; User VHDL File                         ; /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbd_bowling.vhd                 ;         ;
-; bowling_keys.vhd                 ; yes             ; User VHDL File                         ; /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/bowling_keys.vhd                ;         ;
-; kbd_bowling_ctrl.vhd             ; yes             ; User VHDL File                         ; /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbd_bowling_ctrl.vhd            ;         ;
-; altera_pll.v                     ; yes             ; Megafunction                           ; /opt/altera/17.1/quartus/libraries/megafunctions/altera_pll.v                       ;         ;
-; altsyncram.tdf                   ; yes             ; Megafunction                           ; /opt/altera/17.1/quartus/libraries/megafunctions/altsyncram.tdf                     ;         ;
-; stratix_ram_block.inc            ; yes             ; Megafunction                           ; /opt/altera/17.1/quartus/libraries/megafunctions/stratix_ram_block.inc              ;         ;
-; lpm_mux.inc                      ; yes             ; Megafunction                           ; /opt/altera/17.1/quartus/libraries/megafunctions/lpm_mux.inc                        ;         ;
-; lpm_decode.inc                   ; yes             ; Megafunction                           ; /opt/altera/17.1/quartus/libraries/megafunctions/lpm_decode.inc                     ;         ;
-; aglobal171.inc                   ; yes             ; Megafunction                           ; /opt/altera/17.1/quartus/libraries/megafunctions/aglobal171.inc                     ;         ;
-; a_rdenreg.inc                    ; yes             ; Megafunction                           ; /opt/altera/17.1/quartus/libraries/megafunctions/a_rdenreg.inc                      ;         ;
-; altrom.inc                       ; yes             ; Megafunction                           ; /opt/altera/17.1/quartus/libraries/megafunctions/altrom.inc                         ;         ;
-; altram.inc                       ; yes             ; Megafunction                           ; /opt/altera/17.1/quartus/libraries/megafunctions/altram.inc                         ;         ;
-; altdpram.inc                     ; yes             ; Megafunction                           ; /opt/altera/17.1/quartus/libraries/megafunctions/altdpram.inc                       ;         ;
-; db/altsyncram_akl1.tdf           ; yes             ; Auto-Generated Megafunction            ; /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/db/altsyncram_akl1.tdf          ;         ;
-; vga_mem.mif                      ; yes             ; Auto-Found Memory Initialization File  ; /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/vga_mem.mif                     ;         ;
-; db/decode_7la.tdf                ; yes             ; Auto-Generated Megafunction            ; /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/db/decode_7la.tdf               ;         ;
-; db/decode_01a.tdf                ; yes             ; Auto-Generated Megafunction            ; /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/db/decode_01a.tdf               ;         ;
-; db/mux_ifb.tdf                   ; yes             ; Auto-Generated Megafunction            ; /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/db/mux_ifb.tdf                  ;         ;
-+----------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                          ;
++----------------------------------+-----------------+----------------------------------------+-----------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                            ; Library ;
++----------------------------------+-----------------+----------------------------------------+-----------------------------------------------------------------------------------------+---------+
+; kbdex_ctrl.vhd                   ; yes             ; User VHDL File                         ; /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd                  ;         ;
+; ps2_iobase.vhd                   ; yes             ; User VHDL File                         ; /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/ps2_iobase.vhd                  ;         ;
+; vga_pll.vhd                      ; yes             ; User Wizard-Generated File             ; /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/vga_pll.vhd                     ;         ;
+; vga_pll/vga_pll_0002.v           ; yes             ; User Verilog HDL File                  ; /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/vga_pll/vga_pll_0002.v          ; vga_pll ;
+; vgacon.vhd                       ; yes             ; User VHDL File                         ; /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/vgacon.vhd                      ;         ;
+; projeto-final-mc613-boliche.vhd  ; yes             ; User VHDL File                         ; /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/projeto-final-mc613-boliche.vhd ;         ;
+; tela.vhd                         ; yes             ; User VHDL File                         ; /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/tela.vhd                        ;         ;
+; kbd_bowling.vhd                  ; yes             ; User VHDL File                         ; /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbd_bowling.vhd                 ;         ;
+; bowling_keys.vhd                 ; yes             ; User VHDL File                         ; /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/bowling_keys.vhd                ;         ;
+; kbd_bowling_ctrl.vhd             ; yes             ; User VHDL File                         ; /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbd_bowling_ctrl.vhd            ;         ;
+; altera_pll.v                     ; yes             ; Megafunction                           ; /opt/altera/17.1/quartus/libraries/megafunctions/altera_pll.v                           ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                           ; /opt/altera/17.1/quartus/libraries/megafunctions/altsyncram.tdf                         ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                           ; /opt/altera/17.1/quartus/libraries/megafunctions/stratix_ram_block.inc                  ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                           ; /opt/altera/17.1/quartus/libraries/megafunctions/lpm_mux.inc                            ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                           ; /opt/altera/17.1/quartus/libraries/megafunctions/lpm_decode.inc                         ;         ;
+; aglobal171.inc                   ; yes             ; Megafunction                           ; /opt/altera/17.1/quartus/libraries/megafunctions/aglobal171.inc                         ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                           ; /opt/altera/17.1/quartus/libraries/megafunctions/a_rdenreg.inc                          ;         ;
+; altrom.inc                       ; yes             ; Megafunction                           ; /opt/altera/17.1/quartus/libraries/megafunctions/altrom.inc                             ;         ;
+; altram.inc                       ; yes             ; Megafunction                           ; /opt/altera/17.1/quartus/libraries/megafunctions/altram.inc                             ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                           ; /opt/altera/17.1/quartus/libraries/megafunctions/altdpram.inc                           ;         ;
+; db/altsyncram_akl1.tdf           ; yes             ; Auto-Generated Megafunction            ; /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/db/altsyncram_akl1.tdf          ;         ;
+; vga_mem.mif                      ; yes             ; Auto-Found Memory Initialization File  ; /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/vga_mem.mif                     ;         ;
+; db/decode_7la.tdf                ; yes             ; Auto-Generated Megafunction            ; /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/db/decode_7la.tdf               ;         ;
+; db/decode_01a.tdf                ; yes             ; Auto-Generated Megafunction            ; /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/db/decode_01a.tdf               ;         ;
+; db/mux_ifb.tdf                   ; yes             ; Auto-Generated Megafunction            ; /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/db/mux_ifb.tdf                  ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                           ; /opt/altera/17.1/quartus/libraries/megafunctions/lpm_divide.tdf                         ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                           ; /opt/altera/17.1/quartus/libraries/megafunctions/abs_divider.inc                        ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                           ; /opt/altera/17.1/quartus/libraries/megafunctions/sign_div_unsign.inc                    ;         ;
+; db/lpm_divide_9am.tdf            ; yes             ; Auto-Generated Megafunction            ; /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/db/lpm_divide_9am.tdf           ;         ;
+; db/sign_div_unsign_fkh.tdf       ; yes             ; Auto-Generated Megafunction            ; /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/db/sign_div_unsign_fkh.tdf      ;         ;
+; db/alt_u_div_4te.tdf             ; yes             ; Auto-Generated Megafunction            ; /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/db/alt_u_div_4te.tdf            ;         ;
+; db/lpm_divide_fpo.tdf            ; yes             ; Auto-Generated Megafunction            ; /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/db/lpm_divide_fpo.tdf           ;         ;
+; db/abs_divider_obg.tdf           ; yes             ; Auto-Generated Megafunction            ; /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/db/abs_divider_obg.tdf          ;         ;
+; db/alt_u_div_00f.tdf             ; yes             ; Auto-Generated Megafunction            ; /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/db/alt_u_div_00f.tdf            ;         ;
+; db/lpm_abs_kn9.tdf               ; yes             ; Auto-Generated Megafunction            ; /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/db/lpm_abs_kn9.tdf              ;         ;
+; db/lpm_abs_8p9.tdf               ; yes             ; Auto-Generated Megafunction            ; /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/db/lpm_abs_8p9.tdf              ;         ;
++----------------------------------+-----------------+----------------------------------------+-----------------------------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------------+
@@ -225,55 +250,109 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimate of Logic utilization (ALMs needed) ; 337         ;
+; Estimate of Logic utilization (ALMs needed) ; 2046        ;
 ;                                             ;             ;
-; Combinational ALUT usage for logic          ; 530         ;
-;     -- 7 input functions                    ; 3           ;
-;     -- 6 input functions                    ; 132         ;
-;     -- 5 input functions                    ; 87          ;
-;     -- 4 input functions                    ; 72          ;
-;     -- <=3 input functions                  ; 236         ;
+; Combinational ALUT usage for logic          ; 3601        ;
+;     -- 7 input functions                    ; 34          ;
+;     -- 6 input functions                    ; 420         ;
+;     -- 5 input functions                    ; 342         ;
+;     -- 4 input functions                    ; 585         ;
+;     -- <=3 input functions                  ; 2220        ;
 ;                                             ;             ;
-; Dedicated logic registers                   ; 252         ;
+; Dedicated logic registers                   ; 345         ;
 ;                                             ;             ;
-; I/O pins                                    ; 44          ;
+; I/O pins                                    ; 54          ;
 ; Total MLAB memory bits                      ; 0           ;
 ; Total block memory bits                     ; 57600       ;
 ;                                             ;             ;
-; Total DSP Blocks                            ; 0           ;
+; Total DSP Blocks                            ; 6           ;
 ;                                             ;             ;
 ; Total PLLs                                  ; 1           ;
 ;     -- PLLs                                 ; 1           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; CLOCK~input ;
-; Maximum fan-out                             ; 197         ;
-; Total fan-out                               ; 3300        ;
-; Average fan-out                             ; 3.74        ;
+; Maximum fan-out                             ; 290         ;
+; Total fan-out                               ; 13840       ;
+; Average fan-out                             ; 3.40        ;
 +---------------------------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                        ;
-+-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------+------------------+--------------+
-; Compilation Hierarchy Node                      ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                           ; Entity Name      ; Library Name ;
-+-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------+------------------+--------------+
-; |boliche                                        ; 530 (46)            ; 252 (29)                  ; 57600             ; 0          ; 44   ; 0            ; |boliche                                                                                                                                      ; boliche          ; work         ;
-;    |kbd_bowling_ctrl:k|                         ; 198 (0)             ; 132 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |boliche|kbd_bowling_ctrl:k                                                                                                                   ; kbd_bowling_ctrl ; work         ;
-;       |kbd_bowling:kbd_bowling_inst|            ; 12 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|kbd_bowling_ctrl:k|kbd_bowling:kbd_bowling_inst                                                                                      ; kbd_bowling      ; work         ;
-;          |bowling_keys:kb|                      ; 12 (12)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|kbd_bowling_ctrl:k|kbd_bowling:kbd_bowling_inst|bowling_keys:kb                                                                      ; bowling_keys     ; work         ;
-;       |kbdex_ctrl:kbdex_ctrl_inst|              ; 186 (68)            ; 132 (54)                  ; 0                 ; 0          ; 0    ; 0            ; |boliche|kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst                                                                                        ; kbdex_ctrl       ; work         ;
-;          |ps2_iobase:ps2_ctrl|                  ; 118 (118)           ; 78 (78)                   ; 0                 ; 0          ; 0    ; 0            ; |boliche|kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl                                                                    ; ps2_iobase       ; work         ;
-;    |tela:t|                                     ; 286 (232)           ; 91 (49)                   ; 57600             ; 0          ; 0    ; 0            ; |boliche|tela:t                                                                                                                               ; tela             ; work         ;
-;       |vgacon:vga_component|                    ; 54 (48)             ; 42 (40)                   ; 57600             ; 0          ; 0    ; 0            ; |boliche|tela:t|vgacon:vga_component                                                                                                          ; vgacon           ; work         ;
-;          |dual_clock_ram:vgamem|                ; 6 (0)               ; 2 (0)                     ; 57600             ; 0          ; 0    ; 0            ; |boliche|tela:t|vgacon:vga_component|dual_clock_ram:vgamem                                                                                    ; dual_clock_ram   ; work         ;
-;             |altsyncram:ram_block_rtl_0|        ; 6 (0)               ; 2 (0)                     ; 57600             ; 0          ; 0    ; 0            ; |boliche|tela:t|vgacon:vga_component|dual_clock_ram:vgamem|altsyncram:ram_block_rtl_0                                                         ; altsyncram       ; work         ;
-;                |altsyncram_akl1:auto_generated| ; 6 (0)               ; 2 (2)                     ; 57600             ; 0          ; 0    ; 0            ; |boliche|tela:t|vgacon:vga_component|dual_clock_ram:vgamem|altsyncram:ram_block_rtl_0|altsyncram_akl1:auto_generated                          ; altsyncram_akl1  ; work         ;
-;                   |decode_01a:rden_decode_b|    ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|vgacon:vga_component|dual_clock_ram:vgamem|altsyncram:ram_block_rtl_0|altsyncram_akl1:auto_generated|decode_01a:rden_decode_b ; decode_01a       ; work         ;
-;                   |decode_7la:decode2|          ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|vgacon:vga_component|dual_clock_ram:vgamem|altsyncram:ram_block_rtl_0|altsyncram_akl1:auto_generated|decode_7la:decode2       ; decode_7la       ; work         ;
-;          |vga_pll:divider|                      ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|vgacon:vga_component|vga_pll:divider                                                                                          ; vga_pll          ; work         ;
-;             |vga_pll_0002:vga_pll_inst|         ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|vgacon:vga_component|vga_pll:divider|vga_pll_0002:vga_pll_inst                                                                ; vga_pll_0002     ; vga_pll      ;
-;                |altera_pll:altera_pll_i|        ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|vgacon:vga_component|vga_pll:divider|vga_pll_0002:vga_pll_inst|altera_pll:altera_pll_i                                        ; altera_pll       ; work         ;
-+-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------+------------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                           ;
++-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                      ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                           ; Entity Name         ; Library Name ;
++-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |boliche                                        ; 3601 (255)          ; 345 (122)                 ; 57600             ; 6          ; 54   ; 0            ; |boliche                                                                                                                                      ; boliche             ; work         ;
+;    |kbd_bowling_ctrl:k|                         ; 199 (0)             ; 132 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |boliche|kbd_bowling_ctrl:k                                                                                                                   ; kbd_bowling_ctrl    ; work         ;
+;       |kbd_bowling:kbd_bowling_inst|            ; 12 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|kbd_bowling_ctrl:k|kbd_bowling:kbd_bowling_inst                                                                                      ; kbd_bowling         ; work         ;
+;          |bowling_keys:kb|                      ; 12 (12)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|kbd_bowling_ctrl:k|kbd_bowling:kbd_bowling_inst|bowling_keys:kb                                                                      ; bowling_keys        ; work         ;
+;       |kbdex_ctrl:kbdex_ctrl_inst|              ; 187 (68)            ; 132 (54)                  ; 0                 ; 0          ; 0    ; 0            ; |boliche|kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst                                                                                        ; kbdex_ctrl          ; work         ;
+;          |ps2_iobase:ps2_ctrl|                  ; 119 (119)           ; 78 (78)                   ; 0                 ; 0          ; 0    ; 0            ; |boliche|kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl                                                                    ; ps2_iobase          ; work         ;
+;    |tela:t|                                     ; 3147 (1299)         ; 91 (49)                   ; 57600             ; 6          ; 0    ; 0            ; |boliche|tela:t                                                                                                                               ; tela                ; work         ;
+;       |lpm_divide:Div0|                         ; 41 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div0                                                                                                               ; lpm_divide          ; work         ;
+;          |lpm_divide_9am:auto_generated|        ; 41 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div0|lpm_divide_9am:auto_generated                                                                                 ; lpm_divide_9am      ; work         ;
+;             |sign_div_unsign_fkh:divider|       ; 41 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div0|lpm_divide_9am:auto_generated|sign_div_unsign_fkh:divider                                                     ; sign_div_unsign_fkh ; work         ;
+;                |alt_u_div_4te:divider|          ; 41 (41)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div0|lpm_divide_9am:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_4te:divider                               ; alt_u_div_4te       ; work         ;
+;       |lpm_divide:Div10|                        ; 41 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div10                                                                                                              ; lpm_divide          ; work         ;
+;          |lpm_divide_9am:auto_generated|        ; 41 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div10|lpm_divide_9am:auto_generated                                                                                ; lpm_divide_9am      ; work         ;
+;             |sign_div_unsign_fkh:divider|       ; 41 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div10|lpm_divide_9am:auto_generated|sign_div_unsign_fkh:divider                                                    ; sign_div_unsign_fkh ; work         ;
+;                |alt_u_div_4te:divider|          ; 41 (41)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div10|lpm_divide_9am:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_4te:divider                              ; alt_u_div_4te       ; work         ;
+;       |lpm_divide:Div11|                        ; 258 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div11                                                                                                              ; lpm_divide          ; work         ;
+;          |lpm_divide_fpo:auto_generated|        ; 258 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div11|lpm_divide_fpo:auto_generated                                                                                ; lpm_divide_fpo      ; work         ;
+;             |abs_divider_obg:divider|           ; 258 (34)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div11|lpm_divide_fpo:auto_generated|abs_divider_obg:divider                                                        ; abs_divider_obg     ; work         ;
+;                |alt_u_div_00f:divider|          ; 207 (207)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div11|lpm_divide_fpo:auto_generated|abs_divider_obg:divider|alt_u_div_00f:divider                                  ; alt_u_div_00f       ; work         ;
+;                |lpm_abs_8p9:my_abs_num|         ; 17 (17)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div11|lpm_divide_fpo:auto_generated|abs_divider_obg:divider|lpm_abs_8p9:my_abs_num                                 ; lpm_abs_8p9         ; work         ;
+;       |lpm_divide:Div1|                         ; 258 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div1                                                                                                               ; lpm_divide          ; work         ;
+;          |lpm_divide_fpo:auto_generated|        ; 258 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div1|lpm_divide_fpo:auto_generated                                                                                 ; lpm_divide_fpo      ; work         ;
+;             |abs_divider_obg:divider|           ; 258 (34)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div1|lpm_divide_fpo:auto_generated|abs_divider_obg:divider                                                         ; abs_divider_obg     ; work         ;
+;                |alt_u_div_00f:divider|          ; 207 (207)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div1|lpm_divide_fpo:auto_generated|abs_divider_obg:divider|alt_u_div_00f:divider                                   ; alt_u_div_00f       ; work         ;
+;                |lpm_abs_8p9:my_abs_num|         ; 17 (17)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div1|lpm_divide_fpo:auto_generated|abs_divider_obg:divider|lpm_abs_8p9:my_abs_num                                  ; lpm_abs_8p9         ; work         ;
+;       |lpm_divide:Div2|                         ; 41 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div2                                                                                                               ; lpm_divide          ; work         ;
+;          |lpm_divide_9am:auto_generated|        ; 41 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div2|lpm_divide_9am:auto_generated                                                                                 ; lpm_divide_9am      ; work         ;
+;             |sign_div_unsign_fkh:divider|       ; 41 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div2|lpm_divide_9am:auto_generated|sign_div_unsign_fkh:divider                                                     ; sign_div_unsign_fkh ; work         ;
+;                |alt_u_div_4te:divider|          ; 41 (41)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div2|lpm_divide_9am:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_4te:divider                               ; alt_u_div_4te       ; work         ;
+;       |lpm_divide:Div3|                         ; 258 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div3                                                                                                               ; lpm_divide          ; work         ;
+;          |lpm_divide_fpo:auto_generated|        ; 258 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div3|lpm_divide_fpo:auto_generated                                                                                 ; lpm_divide_fpo      ; work         ;
+;             |abs_divider_obg:divider|           ; 258 (34)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div3|lpm_divide_fpo:auto_generated|abs_divider_obg:divider                                                         ; abs_divider_obg     ; work         ;
+;                |alt_u_div_00f:divider|          ; 207 (207)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div3|lpm_divide_fpo:auto_generated|abs_divider_obg:divider|alt_u_div_00f:divider                                   ; alt_u_div_00f       ; work         ;
+;                |lpm_abs_8p9:my_abs_num|         ; 17 (17)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div3|lpm_divide_fpo:auto_generated|abs_divider_obg:divider|lpm_abs_8p9:my_abs_num                                  ; lpm_abs_8p9         ; work         ;
+;       |lpm_divide:Div4|                         ; 41 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div4                                                                                                               ; lpm_divide          ; work         ;
+;          |lpm_divide_9am:auto_generated|        ; 41 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div4|lpm_divide_9am:auto_generated                                                                                 ; lpm_divide_9am      ; work         ;
+;             |sign_div_unsign_fkh:divider|       ; 41 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div4|lpm_divide_9am:auto_generated|sign_div_unsign_fkh:divider                                                     ; sign_div_unsign_fkh ; work         ;
+;                |alt_u_div_4te:divider|          ; 41 (41)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div4|lpm_divide_9am:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_4te:divider                               ; alt_u_div_4te       ; work         ;
+;       |lpm_divide:Div5|                         ; 258 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div5                                                                                                               ; lpm_divide          ; work         ;
+;          |lpm_divide_fpo:auto_generated|        ; 258 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div5|lpm_divide_fpo:auto_generated                                                                                 ; lpm_divide_fpo      ; work         ;
+;             |abs_divider_obg:divider|           ; 258 (34)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div5|lpm_divide_fpo:auto_generated|abs_divider_obg:divider                                                         ; abs_divider_obg     ; work         ;
+;                |alt_u_div_00f:divider|          ; 207 (207)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div5|lpm_divide_fpo:auto_generated|abs_divider_obg:divider|alt_u_div_00f:divider                                   ; alt_u_div_00f       ; work         ;
+;                |lpm_abs_8p9:my_abs_num|         ; 17 (17)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div5|lpm_divide_fpo:auto_generated|abs_divider_obg:divider|lpm_abs_8p9:my_abs_num                                  ; lpm_abs_8p9         ; work         ;
+;       |lpm_divide:Div6|                         ; 41 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div6                                                                                                               ; lpm_divide          ; work         ;
+;          |lpm_divide_9am:auto_generated|        ; 41 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div6|lpm_divide_9am:auto_generated                                                                                 ; lpm_divide_9am      ; work         ;
+;             |sign_div_unsign_fkh:divider|       ; 41 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div6|lpm_divide_9am:auto_generated|sign_div_unsign_fkh:divider                                                     ; sign_div_unsign_fkh ; work         ;
+;                |alt_u_div_4te:divider|          ; 41 (41)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div6|lpm_divide_9am:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_4te:divider                               ; alt_u_div_4te       ; work         ;
+;       |lpm_divide:Div7|                         ; 258 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div7                                                                                                               ; lpm_divide          ; work         ;
+;          |lpm_divide_fpo:auto_generated|        ; 258 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div7|lpm_divide_fpo:auto_generated                                                                                 ; lpm_divide_fpo      ; work         ;
+;             |abs_divider_obg:divider|           ; 258 (34)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div7|lpm_divide_fpo:auto_generated|abs_divider_obg:divider                                                         ; abs_divider_obg     ; work         ;
+;                |alt_u_div_00f:divider|          ; 207 (207)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div7|lpm_divide_fpo:auto_generated|abs_divider_obg:divider|alt_u_div_00f:divider                                   ; alt_u_div_00f       ; work         ;
+;                |lpm_abs_8p9:my_abs_num|         ; 17 (17)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div7|lpm_divide_fpo:auto_generated|abs_divider_obg:divider|lpm_abs_8p9:my_abs_num                                  ; lpm_abs_8p9         ; work         ;
+;       |lpm_divide:Div8|                         ; 41 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div8                                                                                                               ; lpm_divide          ; work         ;
+;          |lpm_divide_9am:auto_generated|        ; 41 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div8|lpm_divide_9am:auto_generated                                                                                 ; lpm_divide_9am      ; work         ;
+;             |sign_div_unsign_fkh:divider|       ; 41 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div8|lpm_divide_9am:auto_generated|sign_div_unsign_fkh:divider                                                     ; sign_div_unsign_fkh ; work         ;
+;                |alt_u_div_4te:divider|          ; 41 (41)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div8|lpm_divide_9am:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_4te:divider                               ; alt_u_div_4te       ; work         ;
+;       |lpm_divide:Div9|                         ; 258 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div9                                                                                                               ; lpm_divide          ; work         ;
+;          |lpm_divide_fpo:auto_generated|        ; 258 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div9|lpm_divide_fpo:auto_generated                                                                                 ; lpm_divide_fpo      ; work         ;
+;             |abs_divider_obg:divider|           ; 258 (34)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div9|lpm_divide_fpo:auto_generated|abs_divider_obg:divider                                                         ; abs_divider_obg     ; work         ;
+;                |alt_u_div_00f:divider|          ; 207 (207)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div9|lpm_divide_fpo:auto_generated|abs_divider_obg:divider|alt_u_div_00f:divider                                   ; alt_u_div_00f       ; work         ;
+;                |lpm_abs_8p9:my_abs_num|         ; 17 (17)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|lpm_divide:Div9|lpm_divide_fpo:auto_generated|abs_divider_obg:divider|lpm_abs_8p9:my_abs_num                                  ; lpm_abs_8p9         ; work         ;
+;       |vgacon:vga_component|                    ; 54 (48)             ; 42 (40)                   ; 57600             ; 0          ; 0    ; 0            ; |boliche|tela:t|vgacon:vga_component                                                                                                          ; vgacon              ; work         ;
+;          |dual_clock_ram:vgamem|                ; 6 (0)               ; 2 (0)                     ; 57600             ; 0          ; 0    ; 0            ; |boliche|tela:t|vgacon:vga_component|dual_clock_ram:vgamem                                                                                    ; dual_clock_ram      ; work         ;
+;             |altsyncram:ram_block_rtl_0|        ; 6 (0)               ; 2 (0)                     ; 57600             ; 0          ; 0    ; 0            ; |boliche|tela:t|vgacon:vga_component|dual_clock_ram:vgamem|altsyncram:ram_block_rtl_0                                                         ; altsyncram          ; work         ;
+;                |altsyncram_akl1:auto_generated| ; 6 (0)               ; 2 (2)                     ; 57600             ; 0          ; 0    ; 0            ; |boliche|tela:t|vgacon:vga_component|dual_clock_ram:vgamem|altsyncram:ram_block_rtl_0|altsyncram_akl1:auto_generated                          ; altsyncram_akl1     ; work         ;
+;                   |decode_01a:rden_decode_b|    ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|vgacon:vga_component|dual_clock_ram:vgamem|altsyncram:ram_block_rtl_0|altsyncram_akl1:auto_generated|decode_01a:rden_decode_b ; decode_01a          ; work         ;
+;                   |decode_7la:decode2|          ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|vgacon:vga_component|dual_clock_ram:vgamem|altsyncram:ram_block_rtl_0|altsyncram_akl1:auto_generated|decode_7la:decode2       ; decode_7la          ; work         ;
+;          |vga_pll:divider|                      ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|vgacon:vga_component|vga_pll:divider                                                                                          ; vga_pll             ; work         ;
+;             |vga_pll_0002:vga_pll_inst|         ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|vgacon:vga_component|vga_pll:divider|vga_pll_0002:vga_pll_inst                                                                ; vga_pll_0002        ; vga_pll      ;
+;                |altera_pll:altera_pll_i|        ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |boliche|tela:t|vgacon:vga_component|vga_pll:divider|vga_pll_0002:vga_pll_inst|altera_pll:altera_pll_i                                        ; altera_pll          ; work         ;
++-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -284,6 +363,18 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+-------------+
 ; tela:t|vgacon:vga_component|dual_clock_ram:vgamem|altsyncram:ram_block_rtl_0|altsyncram_akl1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 19200        ; 3            ; 19200        ; 3            ; 57600 ; vga_mem.mif ;
 +------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+-------------+
+
+
++-----------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary  ;
++---------------------------------+-------------+
+; Statistic                       ; Number Used ;
++---------------------------------+-------------+
+; Independent 18x18 plus 36       ; 6           ;
+; Total number of DSP blocks      ; 6           ;
+;                                 ;             ;
+; Fixed Point Unsigned Multiplier ; 6           ;
++---------------------------------+-------------+
 
 
 Encoding Type:  One-Hot
@@ -368,10 +459,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|hdata[2]                         ; Merged with kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|hdata[0]                     ;
 ; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|siguplights                      ; Stuck at GND due to stuck port data_in                                                 ;
 ; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|hdata[0]                         ; Merged with kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|hdata[3]                     ;
+; strikes[0..5]                                                                  ; Lost fanout                                                                            ;
 ; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|hdata[1]                         ; Stuck at GND due to stuck port data_in                                                 ;
 ; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|hdata[1]     ; Stuck at GND due to stuck port data_in                                                 ;
+; jogada[1]                                                                      ; Stuck at GND due to stuck port data_in                                                 ;
 ; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|hdata[3]     ; Merged with kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|hdata[0] ;
-; Total Number of Removed Registers = 43                                         ;                                                                                        ;
+; Total Number of Removed Registers = 50                                         ;                                                                                        ;
 +--------------------------------------------------------------------------------+----------------------------------------------------------------------------------------+
 
 
@@ -392,12 +485,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 252   ;
-; Number of registers using Synchronous Clear  ; 30    ;
-; Number of registers using Synchronous Load   ; 21    ;
+; Total registers                              ; 345   ;
+; Number of registers using Synchronous Clear  ; 29    ;
+; Number of registers using Synchronous Load   ; 57    ;
 ; Number of registers using Asynchronous Clear ; 169   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 139   ;
+; Number of registers using Clock Enable       ; 233   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -408,15 +501,15 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; Inverted Register                                                                ; Fan out ;
 +----------------------------------------------------------------------------------+---------+
 ; tela:t|state                                                                     ; 35      ;
-; rodada[0]                                                                        ; 9       ;
+; rodada[0]                                                                        ; 10      ;
 ; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|sigclkreleased ; 3       ;
-; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|fcount[8]      ; 3       ;
-; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|fcount[6]      ; 3       ;
+; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|fcount[8]      ; 2       ;
+; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|fcount[6]      ; 2       ;
 ; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|fcount[3]      ; 2       ;
 ; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|fcount[2]      ; 2       ;
 ; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|fcount[0]      ; 2       ;
-; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|rcount[8]      ; 3       ;
-; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|rcount[6]      ; 3       ;
+; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|rcount[8]      ; 2       ;
+; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|rcount[6]      ; 2       ;
 ; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|rcount[3]      ; 2       ;
 ; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|rcount[2]      ; 2       ;
 ; kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|rcount[0]      ; 2       ;
@@ -441,16 +534,20 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------+
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |boliche|kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|fcount[7] ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |boliche|kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|rcount[1] ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |boliche|tela:t|normal_video_word[0]                                                 ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |boliche|kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|fcount[8] ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |boliche|kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|fcount[0] ;
 ; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |boliche|kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|rcount[8] ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |boliche|jogador_vez                                                                 ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |boliche|rodada                                                                      ;
+; 3:1                ; 28 bits   ; 56 LEs        ; 56 LEs               ; 0 LEs                  ; No         ; |boliche|pontos_pinos                                                                ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |boliche|pontos_pinos                                                                ;
 ; 8:1                ; 3 bits    ; 15 LEs        ; 12 LEs               ; 3 LEs                  ; No         ; |boliche|Mux1                                                                        ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |boliche|kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|nstate.EXT1                   ;
+; 6:1                ; 10 bits   ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |boliche|Mux11                                                                       ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |boliche|jogada                                                                      ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |boliche|pinos                                                                       ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |boliche|kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|nstate.CODE                   ;
 ; 8:1                ; 4 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; No         ; |boliche|state                                                                       ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |boliche|kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|Selector13                    ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; No         ; |boliche|kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|Selector12                    ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |boliche|kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|Selector10                    ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; No         ; |boliche|kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|Selector9                     ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------+
 
 
@@ -812,6 +909,282 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++-------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: tela:t|lpm_divide:Div0 ;
++------------------------+----------------+-------------------------------+
+; Parameter Name         ; Value          ; Type                          ;
++------------------------+----------------+-------------------------------+
+; LPM_WIDTHN             ; 9              ; Untyped                       ;
+; LPM_WIDTHD             ; 7              ; Untyped                       ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                       ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                       ;
+; LPM_PIPELINE           ; 0              ; Untyped                       ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                       ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                       ;
+; CBXI_PARAMETER         ; lpm_divide_9am ; Untyped                       ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                       ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                       ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                    ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                  ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                  ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                ;
++------------------------+----------------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: tela:t|lpm_divide:Div1 ;
++------------------------+----------------+-------------------------------+
+; Parameter Name         ; Value          ; Type                          ;
++------------------------+----------------+-------------------------------+
+; LPM_WIDTHN             ; 18             ; Untyped                       ;
+; LPM_WIDTHD             ; 5              ; Untyped                       ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                       ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                       ;
+; LPM_PIPELINE           ; 0              ; Untyped                       ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                       ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                       ;
+; CBXI_PARAMETER         ; lpm_divide_fpo ; Untyped                       ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                       ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                       ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                    ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                  ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                  ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                ;
++------------------------+----------------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: tela:t|lpm_divide:Div2 ;
++------------------------+----------------+-------------------------------+
+; Parameter Name         ; Value          ; Type                          ;
++------------------------+----------------+-------------------------------+
+; LPM_WIDTHN             ; 9              ; Untyped                       ;
+; LPM_WIDTHD             ; 7              ; Untyped                       ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                       ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                       ;
+; LPM_PIPELINE           ; 0              ; Untyped                       ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                       ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                       ;
+; CBXI_PARAMETER         ; lpm_divide_9am ; Untyped                       ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                       ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                       ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                    ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                  ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                  ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                ;
++------------------------+----------------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: tela:t|lpm_divide:Div3 ;
++------------------------+----------------+-------------------------------+
+; Parameter Name         ; Value          ; Type                          ;
++------------------------+----------------+-------------------------------+
+; LPM_WIDTHN             ; 18             ; Untyped                       ;
+; LPM_WIDTHD             ; 5              ; Untyped                       ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                       ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                       ;
+; LPM_PIPELINE           ; 0              ; Untyped                       ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                       ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                       ;
+; CBXI_PARAMETER         ; lpm_divide_fpo ; Untyped                       ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                       ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                       ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                    ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                  ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                  ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                ;
++------------------------+----------------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: tela:t|lpm_divide:Div4 ;
++------------------------+----------------+-------------------------------+
+; Parameter Name         ; Value          ; Type                          ;
++------------------------+----------------+-------------------------------+
+; LPM_WIDTHN             ; 9              ; Untyped                       ;
+; LPM_WIDTHD             ; 7              ; Untyped                       ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                       ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                       ;
+; LPM_PIPELINE           ; 0              ; Untyped                       ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                       ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                       ;
+; CBXI_PARAMETER         ; lpm_divide_9am ; Untyped                       ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                       ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                       ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                    ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                  ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                  ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                ;
++------------------------+----------------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: tela:t|lpm_divide:Div5 ;
++------------------------+----------------+-------------------------------+
+; Parameter Name         ; Value          ; Type                          ;
++------------------------+----------------+-------------------------------+
+; LPM_WIDTHN             ; 18             ; Untyped                       ;
+; LPM_WIDTHD             ; 5              ; Untyped                       ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                       ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                       ;
+; LPM_PIPELINE           ; 0              ; Untyped                       ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                       ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                       ;
+; CBXI_PARAMETER         ; lpm_divide_fpo ; Untyped                       ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                       ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                       ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                    ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                  ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                  ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                ;
++------------------------+----------------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: tela:t|lpm_divide:Div6 ;
++------------------------+----------------+-------------------------------+
+; Parameter Name         ; Value          ; Type                          ;
++------------------------+----------------+-------------------------------+
+; LPM_WIDTHN             ; 9              ; Untyped                       ;
+; LPM_WIDTHD             ; 7              ; Untyped                       ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                       ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                       ;
+; LPM_PIPELINE           ; 0              ; Untyped                       ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                       ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                       ;
+; CBXI_PARAMETER         ; lpm_divide_9am ; Untyped                       ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                       ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                       ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                    ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                  ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                  ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                ;
++------------------------+----------------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: tela:t|lpm_divide:Div7 ;
++------------------------+----------------+-------------------------------+
+; Parameter Name         ; Value          ; Type                          ;
++------------------------+----------------+-------------------------------+
+; LPM_WIDTHN             ; 18             ; Untyped                       ;
+; LPM_WIDTHD             ; 5              ; Untyped                       ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                       ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                       ;
+; LPM_PIPELINE           ; 0              ; Untyped                       ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                       ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                       ;
+; CBXI_PARAMETER         ; lpm_divide_fpo ; Untyped                       ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                       ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                       ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                    ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                  ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                  ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                ;
++------------------------+----------------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: tela:t|lpm_divide:Div8 ;
++------------------------+----------------+-------------------------------+
+; Parameter Name         ; Value          ; Type                          ;
++------------------------+----------------+-------------------------------+
+; LPM_WIDTHN             ; 9              ; Untyped                       ;
+; LPM_WIDTHD             ; 7              ; Untyped                       ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                       ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                       ;
+; LPM_PIPELINE           ; 0              ; Untyped                       ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                       ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                       ;
+; CBXI_PARAMETER         ; lpm_divide_9am ; Untyped                       ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                       ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                       ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                    ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                  ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                  ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                ;
++------------------------+----------------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: tela:t|lpm_divide:Div9 ;
++------------------------+----------------+-------------------------------+
+; Parameter Name         ; Value          ; Type                          ;
++------------------------+----------------+-------------------------------+
+; LPM_WIDTHN             ; 18             ; Untyped                       ;
+; LPM_WIDTHD             ; 5              ; Untyped                       ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                       ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                       ;
+; LPM_PIPELINE           ; 0              ; Untyped                       ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                       ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                       ;
+; CBXI_PARAMETER         ; lpm_divide_fpo ; Untyped                       ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                       ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                       ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                    ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                  ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                  ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                ;
++------------------------+----------------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: tela:t|lpm_divide:Div10 ;
++------------------------+----------------+--------------------------------+
+; Parameter Name         ; Value          ; Type                           ;
++------------------------+----------------+--------------------------------+
+; LPM_WIDTHN             ; 9              ; Untyped                        ;
+; LPM_WIDTHD             ; 7              ; Untyped                        ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                        ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                        ;
+; LPM_PIPELINE           ; 0              ; Untyped                        ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                        ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                        ;
+; CBXI_PARAMETER         ; lpm_divide_9am ; Untyped                        ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                        ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                        ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                     ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                   ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                   ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                 ;
++------------------------+----------------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: tela:t|lpm_divide:Div11 ;
++------------------------+----------------+--------------------------------+
+; Parameter Name         ; Value          ; Type                           ;
++------------------------+----------------+--------------------------------+
+; LPM_WIDTHN             ; 18             ; Untyped                        ;
+; LPM_WIDTHD             ; 5              ; Untyped                        ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                        ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                        ;
+; LPM_PIPELINE           ; 0              ; Untyped                        ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                        ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                        ;
+; CBXI_PARAMETER         ; lpm_divide_fpo ; Untyped                        ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                        ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                        ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                     ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                   ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                   ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                 ;
++------------------------+----------------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +--------------------------------------------------------------------------------------------------------------------------+
 ; altsyncram Parameter Settings by Entity Instance                                                                         ;
 +-------------------------------------------+------------------------------------------------------------------------------+
@@ -857,42 +1230,49 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 252                         ;
+; arriav_ff             ; 345                         ;
 ;     CLR               ; 64                          ;
 ;     CLR SCLR          ; 10                          ;
 ;     CLR SLD           ; 21                          ;
-;     ENA               ; 56                          ;
+;     ENA               ; 115                         ;
 ;     ENA CLR           ; 64                          ;
 ;     ENA CLR SCLR      ; 10                          ;
-;     ENA SCLR          ; 9                           ;
+;     ENA SCLR          ; 8                           ;
+;     ENA SLD           ; 36                          ;
 ;     SCLR              ; 1                           ;
-;     plain             ; 17                          ;
+;     plain             ; 16                          ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 531                         ;
-;     arith             ; 98                          ;
-;         1 data inputs ; 95                          ;
-;         2 data inputs ; 3                           ;
-;     extend            ; 3                           ;
-;         7 data inputs ; 3                           ;
-;     normal            ; 410                         ;
+; arriav_lcell_comb     ; 3602                        ;
+;     arith             ; 1245                        ;
+;         0 data inputs ; 216                         ;
+;         1 data inputs ; 308                         ;
+;         2 data inputs ; 234                         ;
+;         3 data inputs ; 223                         ;
+;         4 data inputs ; 263                         ;
+;         5 data inputs ; 1                           ;
+;     extend            ; 34                          ;
+;         7 data inputs ; 34                          ;
+;     normal            ; 2062                        ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 4                           ;
-;         2 data inputs ; 56                          ;
-;         3 data inputs ; 57                          ;
-;         4 data inputs ; 72                          ;
-;         5 data inputs ; 87                          ;
-;         6 data inputs ; 132                         ;
-;     shared            ; 20                          ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 4                           ;
-;         2 data inputs ; 13                          ;
-;         3 data inputs ; 2                           ;
-; boundary_port         ; 44                          ;
+;         2 data inputs ; 656                         ;
+;         3 data inputs ; 324                         ;
+;         4 data inputs ; 315                         ;
+;         5 data inputs ; 341                         ;
+;         6 data inputs ; 420                         ;
+;     shared            ; 261                         ;
+;         0 data inputs ; 19                          ;
+;         1 data inputs ; 93                          ;
+;         2 data inputs ; 139                         ;
+;         3 data inputs ; 3                           ;
+;         4 data inputs ; 7                           ;
+; arriav_mac            ; 6                           ;
+; boundary_port         ; 54                          ;
 ; generic_pll           ; 1                           ;
 ; stratixv_ram_block    ; 9                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 7.00                        ;
-; Average LUT depth     ; 2.96                        ;
+; Max LUT depth         ; 39.90                       ;
+; Average LUT depth     ; 24.95                       ;
 +-----------------------+-----------------------------+
 
 
@@ -901,7 +1281,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:09     ;
 +----------------+--------------+
 
 
@@ -911,52 +1291,54 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Mon Jun 11 22:59:19 2018
+    Info: Processing started: Wed Jun 13 05:13:48 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off projeto-final-mc613-boliche -c projeto-final-mc613-boliche
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file kbdex_ctrl.vhd
-    Info (12022): Found design unit 1: kbdex_ctrl-rtl File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 63
-    Info (12023): Found entity 1: kbdex_ctrl File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 47
+    Info (12022): Found design unit 1: kbdex_ctrl-rtl File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 63
+    Info (12023): Found entity 1: kbdex_ctrl File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 47
 Info (12021): Found 2 design units, including 1 entities, in source file ps2_iobase.vhd
-    Info (12022): Found design unit 1: ps2_iobase-rtl File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/ps2_iobase.vhd Line: 41
-    Info (12023): Found entity 1: ps2_iobase File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/ps2_iobase.vhd Line: 20
+    Info (12022): Found design unit 1: ps2_iobase-rtl File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/ps2_iobase.vhd Line: 41
+    Info (12023): Found entity 1: ps2_iobase File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/ps2_iobase.vhd Line: 20
 Info (12021): Found 2 design units, including 1 entities, in source file vga_pll.vhd
-    Info (12022): Found design unit 1: vga_pll-rtl File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/vga_pll.vhd Line: 19
-    Info (12023): Found entity 1: vga_pll File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/vga_pll.vhd Line: 11
+    Info (12022): Found design unit 1: vga_pll-rtl File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/vga_pll.vhd Line: 19
+    Info (12023): Found entity 1: vga_pll File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/vga_pll.vhd Line: 11
 Info (12021): Found 1 design units, including 1 entities, in source file vga_pll/vga_pll_0002.v
-    Info (12023): Found entity 1: vga_pll_0002 File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/vga_pll/vga_pll_0002.v Line: 2
+    Info (12023): Found entity 1: vga_pll_0002 File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/vga_pll/vga_pll_0002.v Line: 2
 Info (12021): Found 4 design units, including 2 entities, in source file vgacon.vhd
-    Info (12022): Found design unit 1: vgacon-behav File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/vgacon.vhd Line: 96
-    Info (12022): Found design unit 2: dual_clock_ram-behav File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/vgacon.vhd Line: 269
-    Info (12023): Found entity 1: vgacon File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/vgacon.vhd Line: 75
-    Info (12023): Found entity 2: dual_clock_ram File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/vgacon.vhd Line: 256
+    Info (12022): Found design unit 1: vgacon-behav File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/vgacon.vhd Line: 96
+    Info (12022): Found design unit 2: dual_clock_ram-behav File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/vgacon.vhd Line: 269
+    Info (12023): Found entity 1: vgacon File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/vgacon.vhd Line: 75
+    Info (12023): Found entity 2: dual_clock_ram File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/vgacon.vhd Line: 256
 Info (12021): Found 2 design units, including 1 entities, in source file projeto-final-mc613-boliche.vhd
-    Info (12022): Found design unit 1: boliche-rtl File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/projeto-final-mc613-boliche.vhd Line: 22
-    Info (12023): Found entity 1: boliche File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/projeto-final-mc613-boliche.vhd Line: 6
+    Info (12022): Found design unit 1: boliche-rtl File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/projeto-final-mc613-boliche.vhd Line: 24
+    Info (12023): Found entity 1: boliche File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/projeto-final-mc613-boliche.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file tela.vhd
-    Info (12022): Found design unit 1: tela-behavior File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/tela.vhd Line: 22
-    Info (12023): Found entity 1: tela File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/tela.vhd Line: 4
+    Info (12022): Found design unit 1: tela-behavior File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/tela.vhd Line: 29
+    Info (12023): Found entity 1: tela File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/tela.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file kbd_bowling.vhd
-    Info (12022): Found design unit 1: kbd_bowling-rtl File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbd_bowling.vhd Line: 14
-    Info (12023): Found entity 1: kbd_bowling File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbd_bowling.vhd Line: 5
+    Info (12022): Found design unit 1: kbd_bowling-rtl File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbd_bowling.vhd Line: 14
+    Info (12023): Found entity 1: kbd_bowling File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbd_bowling.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file bowling_keys.vhd
-    Info (12022): Found design unit 1: bowling_keys-LogicFunction File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/bowling_keys.vhd Line: 11
-    Info (12023): Found entity 1: bowling_keys File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/bowling_keys.vhd Line: 4
+    Info (12022): Found design unit 1: bowling_keys-LogicFunction File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/bowling_keys.vhd Line: 11
+    Info (12023): Found entity 1: bowling_keys File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/bowling_keys.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file kbd_bowling_ctrl.vhd
-    Info (12022): Found design unit 1: kbd_bowling_ctrl-rtl File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbd_bowling_ctrl.vhd Line: 13
-    Info (12023): Found entity 1: kbd_bowling_ctrl File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbd_bowling_ctrl.vhd Line: 4
+    Info (12022): Found design unit 1: kbd_bowling_ctrl-rtl File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbd_bowling_ctrl.vhd Line: 13
+    Info (12023): Found entity 1: kbd_bowling_ctrl File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbd_bowling_ctrl.vhd Line: 4
 Info (12127): Elaborating entity "boliche" for the top level hierarchy
-Info (12128): Elaborating entity "tela" for hierarchy "tela:t" File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/projeto-final-mc613-boliche.vhd Line: 47
-Warning (10036): Verilog HDL or VHDL warning at tela.vhd(44): object "slow_clock" assigned a value but never read File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/tela.vhd Line: 44
-Warning (10036): Verilog HDL or VHDL warning at tela.vhd(60): object "switch" assigned a value but never read File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/tela.vhd Line: 60
-Info (12128): Elaborating entity "vgacon" for hierarchy "tela:t|vgacon:vga_component" File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/tela.vhd Line: 66
-Info (12128): Elaborating entity "vga_pll" for hierarchy "tela:t|vgacon:vga_component|vga_pll:divider" File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/vgacon.vhd Line: 118
-Info (12128): Elaborating entity "vga_pll_0002" for hierarchy "tela:t|vgacon:vga_component|vga_pll:divider|vga_pll_0002:vga_pll_inst" File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/vga_pll.vhd Line: 31
-Info (12128): Elaborating entity "altera_pll" for hierarchy "tela:t|vgacon:vga_component|vga_pll:divider|vga_pll_0002:vga_pll_inst|altera_pll:altera_pll_i" File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/vga_pll/vga_pll_0002.v Line: 85
+Warning (10036): Verilog HDL or VHDL warning at projeto-final-mc613-boliche.vhd(26): object "slow_clock" assigned a value but never read File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/projeto-final-mc613-boliche.vhd Line: 26
+Warning (10873): Using initial value X (don't care) for net "LEDR[9..2]" at projeto-final-mc613-boliche.vhd(11) File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/projeto-final-mc613-boliche.vhd Line: 11
+Info (12128): Elaborating entity "tela" for hierarchy "tela:t" File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/projeto-final-mc613-boliche.vhd Line: 59
+Warning (10036): Verilog HDL or VHDL warning at tela.vhd(51): object "slow_clock" assigned a value but never read File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/tela.vhd Line: 51
+Warning (10036): Verilog HDL or VHDL warning at tela.vhd(67): object "switch" assigned a value but never read File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/tela.vhd Line: 67
+Info (12128): Elaborating entity "vgacon" for hierarchy "tela:t|vgacon:vga_component" File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/tela.vhd Line: 73
+Info (12128): Elaborating entity "vga_pll" for hierarchy "tela:t|vgacon:vga_component|vga_pll:divider" File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/vgacon.vhd Line: 118
+Info (12128): Elaborating entity "vga_pll_0002" for hierarchy "tela:t|vgacon:vga_component|vga_pll:divider|vga_pll_0002:vga_pll_inst" File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/vga_pll.vhd Line: 31
+Info (12128): Elaborating entity "altera_pll" for hierarchy "tela:t|vgacon:vga_component|vga_pll:divider|vga_pll_0002:vga_pll_inst|altera_pll:altera_pll_i" File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/vga_pll/vga_pll_0002.v Line: 85
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "wire_to_nowhere_64" into its bus
-Info (12130): Elaborated megafunction instantiation "tela:t|vgacon:vga_component|vga_pll:divider|vga_pll_0002:vga_pll_inst|altera_pll:altera_pll_i" File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/vga_pll/vga_pll_0002.v Line: 85
-Info (12133): Instantiated megafunction "tela:t|vgacon:vga_component|vga_pll:divider|vga_pll_0002:vga_pll_inst|altera_pll:altera_pll_i" with the following parameter: File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/vga_pll/vga_pll_0002.v Line: 85
+Info (12130): Elaborated megafunction instantiation "tela:t|vgacon:vga_component|vga_pll:divider|vga_pll_0002:vga_pll_inst|altera_pll:altera_pll_i" File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/vga_pll/vga_pll_0002.v Line: 85
+Info (12133): Instantiated megafunction "tela:t|vgacon:vga_component|vga_pll:divider|vga_pll_0002:vga_pll_inst|altera_pll:altera_pll_i" with the following parameter: File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/vga_pll/vga_pll_0002.v Line: 85
     Info (12134): Parameter "fractional_vco_multiplier" = "false"
     Info (12134): Parameter "reference_clock_frequency" = "50.0 MHz"
     Info (12134): Parameter "operation_mode" = "direct"
@@ -1017,49 +1399,49 @@ Info (12133): Instantiated megafunction "tela:t|vgacon:vga_component|vga_pll:div
     Info (12134): Parameter "duty_cycle17" = "50"
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
-Info (12128): Elaborating entity "dual_clock_ram" for hierarchy "tela:t|vgacon:vga_component|dual_clock_ram:vgamem" File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/vgacon.vhd Line: 124
-Info (12128): Elaborating entity "kbd_bowling_ctrl" for hierarchy "kbd_bowling_ctrl:k" File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/projeto-final-mc613-boliche.vhd Line: 63
-Info (12128): Elaborating entity "kbdex_ctrl" for hierarchy "kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst" File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbd_bowling_ctrl.vhd Line: 43
-Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(125): signal "en" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 125
-Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(148): signal "fetchdata" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 148
-Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(150): signal "fetchdata" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 150
-Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(152): signal "fetchdata" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 152
-Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(203): signal "sigfetch" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 203
-Warning (10631): VHDL Process Statement warning at kbdex_ctrl.vhd(212): inferring latch(es) for signal or variable "selE0", which holds its previous value in one or more paths through the process File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 212
-Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(237): signal "key0en" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 237
-Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(247): signal "key1en" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 247
-Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(257): signal "key2en" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 257
-Warning (10631): VHDL Process Statement warning at kbdex_ctrl.vhd(266): inferring latch(es) for signal or variable "relbt", which holds its previous value in one or more paths through the process File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 266
-Warning (10631): VHDL Process Statement warning at kbdex_ctrl.vhd(276): inferring latch(es) for signal or variable "selbt", which holds its previous value in one or more paths through the process File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 276
-Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(293): signal "datacode" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 293
-Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(293): signal "key0code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 293
-Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(293): signal "key1code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 293
-Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(294): signal "datacode" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 294
-Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(294): signal "key2code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 294
-Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(295): signal "key0code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 295
-Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(297): signal "key1code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 297
-Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(299): signal "key2code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 299
-Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(306): signal "datacode" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 306
-Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(307): signal "key0code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 307
-Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(309): signal "key1code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 309
-Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(311): signal "key2code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 311
-Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(314): signal "datacode" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 314
-Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(315): signal "key0code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 315
-Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(317): signal "key1code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 317
-Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(319): signal "key2code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 319
-Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(324): signal "key0code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 324
-Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(324): signal "datacode" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 324
-Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(326): signal "key1code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 326
-Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(326): signal "datacode" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 326
-Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(328): signal "key2code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 328
-Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(328): signal "datacode" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 328
-Info (10041): Inferred latch for "selbt" at kbdex_ctrl.vhd(276) File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 276
-Info (10041): Inferred latch for "relbt" at kbdex_ctrl.vhd(266) File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 266
-Info (10041): Inferred latch for "selE0" at kbdex_ctrl.vhd(212) File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 212
-Info (12128): Elaborating entity "ps2_iobase" for hierarchy "kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl" File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbdex_ctrl.vhd Line: 114
-Warning (10492): VHDL Process Statement warning at ps2_iobase.vhd(161): signal "sigsending" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/ps2_iobase.vhd Line: 161
-Info (12128): Elaborating entity "kbd_bowling" for hierarchy "kbd_bowling_ctrl:k|kbd_bowling:kbd_bowling_inst" File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbd_bowling_ctrl.vhd Line: 58
-Info (12128): Elaborating entity "bowling_keys" for hierarchy "kbd_bowling_ctrl:k|kbd_bowling:kbd_bowling_inst|bowling_keys:kb" File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/kbd_bowling.vhd Line: 18
+Info (12128): Elaborating entity "dual_clock_ram" for hierarchy "tela:t|vgacon:vga_component|dual_clock_ram:vgamem" File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/vgacon.vhd Line: 124
+Info (12128): Elaborating entity "kbd_bowling_ctrl" for hierarchy "kbd_bowling_ctrl:k" File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/projeto-final-mc613-boliche.vhd Line: 81
+Info (12128): Elaborating entity "kbdex_ctrl" for hierarchy "kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst" File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbd_bowling_ctrl.vhd Line: 43
+Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(125): signal "en" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 125
+Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(148): signal "fetchdata" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 148
+Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(150): signal "fetchdata" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 150
+Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(152): signal "fetchdata" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 152
+Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(203): signal "sigfetch" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 203
+Warning (10631): VHDL Process Statement warning at kbdex_ctrl.vhd(212): inferring latch(es) for signal or variable "selE0", which holds its previous value in one or more paths through the process File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 212
+Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(237): signal "key0en" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 237
+Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(247): signal "key1en" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 247
+Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(257): signal "key2en" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 257
+Warning (10631): VHDL Process Statement warning at kbdex_ctrl.vhd(266): inferring latch(es) for signal or variable "relbt", which holds its previous value in one or more paths through the process File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 266
+Warning (10631): VHDL Process Statement warning at kbdex_ctrl.vhd(276): inferring latch(es) for signal or variable "selbt", which holds its previous value in one or more paths through the process File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 276
+Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(293): signal "datacode" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 293
+Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(293): signal "key0code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 293
+Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(293): signal "key1code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 293
+Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(294): signal "datacode" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 294
+Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(294): signal "key2code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 294
+Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(295): signal "key0code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 295
+Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(297): signal "key1code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 297
+Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(299): signal "key2code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 299
+Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(306): signal "datacode" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 306
+Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(307): signal "key0code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 307
+Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(309): signal "key1code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 309
+Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(311): signal "key2code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 311
+Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(314): signal "datacode" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 314
+Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(315): signal "key0code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 315
+Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(317): signal "key1code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 317
+Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(319): signal "key2code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 319
+Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(324): signal "key0code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 324
+Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(324): signal "datacode" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 324
+Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(326): signal "key1code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 326
+Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(326): signal "datacode" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 326
+Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(328): signal "key2code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 328
+Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(328): signal "datacode" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 328
+Info (10041): Inferred latch for "selbt" at kbdex_ctrl.vhd(276) File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 276
+Info (10041): Inferred latch for "relbt" at kbdex_ctrl.vhd(266) File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 266
+Info (10041): Inferred latch for "selE0" at kbdex_ctrl.vhd(212) File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 212
+Info (12128): Elaborating entity "ps2_iobase" for hierarchy "kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl" File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbdex_ctrl.vhd Line: 114
+Warning (10492): VHDL Process Statement warning at ps2_iobase.vhd(161): signal "sigsending" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/ps2_iobase.vhd Line: 161
+Info (12128): Elaborating entity "kbd_bowling" for hierarchy "kbd_bowling_ctrl:k|kbd_bowling:kbd_bowling_inst" File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbd_bowling_ctrl.vhd Line: 58
+Info (12128): Elaborating entity "bowling_keys" for hierarchy "kbd_bowling_ctrl:k|kbd_bowling:kbd_bowling_inst|bowling_keys:kb" File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/kbd_bowling.vhd Line: 18
 Info (19000): Inferred 1 megafunctions from design logic
     Info (276029): Inferred altsyncram megafunction from the following design logic: "tela:t|vgacon:vga_component|dual_clock_ram:vgamem|ram_block_rtl_0" 
         Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
@@ -1077,6 +1459,19 @@ Info (19000): Inferred 1 megafunctions from design logic
         Info (286033): Parameter INDATA_ACLR_A set to NONE
         Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
         Info (286033): Parameter INIT_FILE set to vga_mem.mif
+Info (278001): Inferred 12 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "tela:t|Div0" File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/tela.vhd Line: 280
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "tela:t|Div1" File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/tela.vhd Line: 281
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "tela:t|Div2" File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/tela.vhd Line: 384
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "tela:t|Div3" File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/tela.vhd Line: 385
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "tela:t|Div4" File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/tela.vhd Line: 489
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "tela:t|Div5" File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/tela.vhd Line: 490
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "tela:t|Div6" File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/tela.vhd Line: 594
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "tela:t|Div7" File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/tela.vhd Line: 595
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "tela:t|Div8" File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/tela.vhd Line: 699
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "tela:t|Div9" File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/tela.vhd Line: 700
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "tela:t|Div10" File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/tela.vhd Line: 804
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "tela:t|Div11" File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/tela.vhd Line: 805
 Info (12130): Elaborated megafunction instantiation "tela:t|vgacon:vga_component|dual_clock_ram:vgamem|altsyncram:ram_block_rtl_0"
 Info (12133): Instantiated megafunction "tela:t|vgacon:vga_component|dual_clock_ram:vgamem|altsyncram:ram_block_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
@@ -1095,21 +1490,59 @@ Info (12133): Instantiated megafunction "tela:t|vgacon:vga_component|dual_clock_
     Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
     Info (12134): Parameter "INIT_FILE" = "vga_mem.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_akl1.tdf
-    Info (12023): Found entity 1: altsyncram_akl1 File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/db/altsyncram_akl1.tdf Line: 33
+    Info (12023): Found entity 1: altsyncram_akl1 File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/db/altsyncram_akl1.tdf Line: 33
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_7la.tdf
-    Info (12023): Found entity 1: decode_7la File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/db/decode_7la.tdf Line: 22
+    Info (12023): Found entity 1: decode_7la File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/db/decode_7la.tdf Line: 22
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_01a.tdf
-    Info (12023): Found entity 1: decode_01a File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/db/decode_01a.tdf Line: 22
+    Info (12023): Found entity 1: decode_01a File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/db/decode_01a.tdf Line: 22
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_ifb.tdf
-    Info (12023): Found entity 1: mux_ifb File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/db/mux_ifb.tdf Line: 22
+    Info (12023): Found entity 1: mux_ifb File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/db/mux_ifb.tdf Line: 22
+Info (12130): Elaborated megafunction instantiation "tela:t|lpm_divide:Div0" File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/tela.vhd Line: 280
+Info (12133): Instantiated megafunction "tela:t|lpm_divide:Div0" with the following parameter: File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/tela.vhd Line: 280
+    Info (12134): Parameter "LPM_WIDTHN" = "9"
+    Info (12134): Parameter "LPM_WIDTHD" = "7"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_9am.tdf
+    Info (12023): Found entity 1: lpm_divide_9am File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/db/lpm_divide_9am.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_fkh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_fkh File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/db/sign_div_unsign_fkh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_4te.tdf
+    Info (12023): Found entity 1: alt_u_div_4te File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/db/alt_u_div_4te.tdf Line: 22
+Info (12130): Elaborated megafunction instantiation "tela:t|lpm_divide:Div1" File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/tela.vhd Line: 281
+Info (12133): Instantiated megafunction "tela:t|lpm_divide:Div1" with the following parameter: File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/tela.vhd Line: 281
+    Info (12134): Parameter "LPM_WIDTHN" = "18"
+    Info (12134): Parameter "LPM_WIDTHD" = "5"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_fpo.tdf
+    Info (12023): Found entity 1: lpm_divide_fpo File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/db/lpm_divide_fpo.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_obg.tdf
+    Info (12023): Found entity 1: abs_divider_obg File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/db/abs_divider_obg.tdf Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_00f.tdf
+    Info (12023): Found entity 1: alt_u_div_00f File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/db/alt_u_div_00f.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_kn9.tdf
+    Info (12023): Found entity 1: lpm_abs_kn9 File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/db/lpm_abs_kn9.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_8p9.tdf
+    Info (12023): Found entity 1: lpm_abs_8p9 File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/db/lpm_abs_8p9.tdf Line: 22
 Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
-    Warning (13310): Register "kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|ps2_data~en" is converted into an equivalent circuit using register "kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|ps2_data~en_emulated" and latch "kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|ps2_data~1" File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/ps2_iobase.vhd Line: 25
+    Warning (13310): Register "kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|ps2_data~en" is converted into an equivalent circuit using register "kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|ps2_data~en_emulated" and latch "kbd_bowling_ctrl:k|kbdex_ctrl:kbdex_ctrl_inst|ps2_iobase:ps2_ctrl|ps2_data~1" File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/ps2_iobase.vhd Line: 25
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "VGA_BLANK_N" is stuck at VCC File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/projeto-final-mc613-boliche.vhd Line: 14
-    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/projeto-final-mc613-boliche.vhd Line: 14
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/projeto-final-mc613-boliche.vhd Line: 11
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/projeto-final-mc613-boliche.vhd Line: 11
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/projeto-final-mc613-boliche.vhd Line: 11
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/projeto-final-mc613-boliche.vhd Line: 11
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/projeto-final-mc613-boliche.vhd Line: 11
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/projeto-final-mc613-boliche.vhd Line: 11
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/projeto-final-mc613-boliche.vhd Line: 11
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/projeto-final-mc613-boliche.vhd Line: 11
+    Warning (13410): Pin "VGA_BLANK_N" is stuck at VCC File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/projeto-final-mc613-boliche.vhd Line: 16
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/projeto-final-mc613-boliche.vhd Line: 16
 Info (286030): Timing-Driven Synthesis is running
 Critical Warning (18061): Ignored Power-Up Level option on the following registers
-    Critical Warning (18010): Register tela:t|state will power up to High File: /home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/tela.vhd Line: 58
+    Critical Warning (18010): Register tela:t|state will power up to High File: /home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/tela.vhd Line: 65
+Info (17049): 6 registers lost all their fanouts during netlist optimizations.
 Warning (20013): Ignored 571 assignments for entity "DE1_SoC" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[0] -entity DE1_SoC was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[10] -entity DE1_SoC was ignored
@@ -1684,17 +2117,18 @@ Warning (20013): Ignored 571 assignments for entity "DE1_SoC" -- entity does not
     Warning (20014): Assignment for entity set_instance_assignment -name D5_DELAY 2 -to HPS_DDR3_CK_P -entity DE1_SoC was ignored
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 7 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 655 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 3779 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 13 input pins
-    Info (21059): Implemented 29 output pins
+    Info (21059): Implemented 39 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 601 logic cells
+    Info (21061): Implemented 3709 logic cells
     Info (21064): Implemented 9 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 616 warnings
-    Info: Peak virtual memory: 1229 megabytes
-    Info: Processing ended: Mon Jun 11 22:59:32 2018
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:26
+    Info (21062): Implemented 6 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 626 warnings
+    Info: Peak virtual memory: 1258 megabytes
+    Info: Processing ended: Wed Jun 13 05:14:08 2018
+    Info: Elapsed time: 00:00:20
+    Info: Total CPU time (on all processors): 00:00:30
 
 

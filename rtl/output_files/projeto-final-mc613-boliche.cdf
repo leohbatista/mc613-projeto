@@ -6,7 +6,7 @@ JedecChain;
 	P ActionCode(Ign)
 		Device PartName(SOCVHPS) MfrSpec(OpMask(0));
 	P ActionCode(Cfg)
-		Device PartName(5CSEMA5F31) Path("/home/ec2015/ra171985/disciplinas/mc613/projeto/rtl/output_files/") File("projeto-final-mc613-boliche.sof") MfrSpec(OpMask(1));
+		Device PartName(5CSEMA5F31) Path("/home/ec2015/ra166597/Documents/mc613/mc613-projeto/rtl/output_files/") File("projeto-final-mc613-boliche.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 
